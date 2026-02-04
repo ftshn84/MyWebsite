@@ -141,10 +141,12 @@ body {
 
 .section h2 {
     font-size: 28px;
-    color: #3498db;
+    color: #ffffff; /* Pure white color */
     margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     border-bottom: 3px solid #3498db; /* Blue underline */
-    padding-bottom: 10px;
+    font-weight: bold;
 }
 
 /* Paragraph styling */
@@ -152,6 +154,127 @@ body {
     font-size: 16px;
     color: #ecf0f1;
     margin-bottom: 15px;
+}
+
+/* ============================================
+   HOME SECTION SPECIAL STYLING
+   ============================================ */
+
+/* Home container - two column layout */
+.home-container {
+    display: flex; /* Two column layout */
+    gap: 60px; /* Space between columns */
+    align-items: center; /* Vertically center content */
+    min-height: 400px; /* Minimum height for content area */
+}
+
+/* Left side of home section */
+.home-left {
+    flex: 1; /* Take up half width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home-left h1 {
+    font-size: 48px;
+    color: #ecf0f1; 
+    
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.home-left p {
+    font-size: 24px;
+    color: #3498db; /* Bright blue */
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Right side of home section */
+.home-right {
+    flex: 1; /* Take up half width */
+    display: flex;
+    align-items: center;
+}
+
+.home-right p {
+    font-size: 18px;
+    color: #ecf0f1;
+    line-height: 1.8;
+    text-align: left;
+    font-style: italic;
+}
+
+/* ============================================
+   CONTACT SECTION STYLES
+   ============================================ */
+/* Contact information container */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Comfortable space between contact items */
+    margin-top: 12px;
+}
+
+/* Individual contact item */
+.contact-item {
+    background-color: #1a1a1a; /* Same color as section background */
+    padding: 12px; /* Tight padding for a denser layout */
+    border-radius: 8px;
+    border-left: 4px solid #3498db; /* Blue left border accent */
+    display: flex; /* Place icon and text on one line */
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap; /* Allow wrapping for long addresses */
+    color: #ffffff; /* Base text color for the item */
+}
+
+.contact-item h3 {
+    color: #ffffff; /* Make icon+label white */
+    font-size: 18px;
+    margin: 0; /* Reset margins for inline layout */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-item h3 svg {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.contact-item p {
+    margin: 0;
+}
+
+/* Contact link styling */
+.contact-item a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+/* Map container styling */
+.map-container {
+    margin-top: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #3498db;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 400px;
 }
 
 /* ============================================
@@ -177,6 +300,18 @@ body {
 }
 
 .calendar-header h3 {
+.contact-item h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0; /* Reset margins for inline layout */
+    display: flex;
+    align-items: center;
+}
+
+.contact-item h3 svg {
+    display: inline-block;
+    vertical-align: middle;
+}
     color: #3498db;
     margin: 0;
     font-size: 18px;
@@ -380,5 +515,145 @@ body {
     .section {
         padding: 20px;
         margin-bottom: 30px;
+    }
+}
+
+/* ============================================
+   TESTIMONIAL CAROUSEL STYLES
+   ============================================ */
+
+/* Carousel container - holds the track */
+.testimonial-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hide testimonials outside the visible area */
+    background-color: #000000;
+    border-radius: 8px;
+    padding: 20px 0;
+    margin: 30px 0;
+}
+
+/* Testimonial track - the moving element that contains all cards */
+.testimonial-track {
+    display: flex; /* Arrange cards horizontally */
+    gap: 20px;
+    animation: scroll-carousel 5s linear infinite; /* Auto-scroll animation: 40s duration, loops infinitely */
+    padding: 0 20px;
+    /* The animation moves the track left and loops seamlessly */
+}
+
+/* Individual testimonial card */
+.testimonial-card {
+    flex: 0 0 calc(100% - 20px); /* Each card takes full width minus gap */
+    min-width: 100%;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Content wrapper inside testimonial card */
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Testimonial quote text */
+.testimonial-text {
+    font-size: 18px;
+    color: #ecf0f1;
+    line-height: 1.8;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Author section (photo + name) */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* Profile photo styling */
+.testimonial-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #3498db;
+}
+
+/* Author name styling */
+.testimonial-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3498db;
+}
+
+/* Auto-scroll animation keyframes */
+/* This animation creates a continuous scrolling effect by translating the track */
+@keyframes scroll-carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Translates by -100% to move one card width, then repeats */
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 768px) {
+    .testimonial-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        padding: 20px;
+    }
+
+    .testimonial-text {
+        font-size: 16px;
+    }
+
+    .testimonial-carousel {
+        padding: 15px 0;
+    }
+
+    .testimonial-track {
+        padding: 0 15px;
+        gap: 15px;
+    }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 480px) {
+    .testimonial-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        padding: 15px;
+    }
+
+    .testimonial-text {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .testimonial-photo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .testimonial-name {
+        font-size: 14px;
+    }
+
+    .testimonial-author {
+        gap: 10px;
     }
 }

@@ -294,3 +294,44 @@ generateCalendar();
 // Log to console that the script has loaded successfully
 console.log('✓ Navigation script loaded successfully!');
 console.log('✓ Click any navigation button to scroll to that section');
+// ============================================
+// TESTIMONIAL CAROUSEL INITIALIZATION
+// ============================================
+
+/**
+ * Testimonial Carousel Auto-Scroll Setup
+ * This function initializes the carousel and ensures it auto-scrolls smoothly
+ * The carousel uses CSS animation for continuous looping
+ */
+function initializeTestimonialCarousel() {
+    // Get the testimonial track element that contains all the cards
+    const testimonialTrack = document.querySelector('.testimonial-track');
+    
+    if (!testimonialTrack) {
+        console.log('Testimonial carousel not found on this page');
+        return; // Exit if carousel doesn't exist
+    }
+
+    // Get all testimonial cards
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const totalCards = testimonialCards.length;
+
+    // Log carousel info to console for debugging
+    console.log(`✓ Testimonial carousel initialized with ${totalCards} testimonials`);
+    console.log('✓ Carousel will auto-scroll continuously and loop seamlessly');
+
+    // The CSS animation handles the actual scrolling (scroll-carousel keyframes)
+    // The animation duration is set in CSS (40s) and divides equally among all cards
+    // Each card is displayed for approximately 40s / totalCards seconds
+    
+    // Optional: Add pause-on-hover functionality (uncomment to enable)
+    // testimonialTrack.addEventListener('mouseenter', () => {
+    //     testimonialTrack.style.animationPlayState = 'paused';
+    // });
+    // testimonialTrack.addEventListener('mouseleave', () => {
+    //     testimonialTrack.style.animationPlayState = 'running';
+    // });
+}
+
+// Call the carousel initialization when the page loads
+initializeTestimonialCarousel();
