@@ -306,31 +306,49 @@ console.log('✓ Click any navigation button to scroll to that section');
 function initializeTestimonialCarousel() {
     // Get the testimonial track element that contains all the cards
     const testimonialTrack = document.querySelector('.testimonial-track');
-    
     if (!testimonialTrack) {
         console.log('Testimonial carousel not found on this page');
-        return; // Exit if carousel doesn't exist
+        return;
     }
 
-    // Get all testimonial cards
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    const totalCards = testimonialCards.length;
+    // Duplicate testimonial cards for seamless looping
+    const cards = Array.from(testimonialTrack.children);
+    cards.forEach(card => {
+        testimonialTrack.appendChild(card.cloneNode(true));
+    });
 
-    // Log carousel info to console for debugging
-    console.log(`✓ Testimonial carousel initialized with ${totalCards} testimonials`);
-    console.log('✓ Carousel will auto-scroll continuously and loop seamlessly');
+    // Set up variables for scrolling
+    let scrollAmount = 0;
+    const cardWidth = cards[0].offsetWidth + 20; // card width + gap
+    const totalWidth = cardWidth * cards.length;
 
-    // The CSS animation handles the actual scrolling (scroll-carousel keyframes)
-    // The animation duration is set in CSS (40s) and divides equally among all cards
-    // Each card is displayed for approximately 40s / totalCards seconds
-    
-    // Optional: Add pause-on-hover functionality (uncomment to enable)
-    // testimonialTrack.addEventListener('mouseenter', () => {
-    //     testimonialTrack.style.animationPlayState = 'paused';
-    // });
-    // testimonialTrack.addEventListener('mouseleave', () => {
-    //     testimonialTrack.style.animationPlayState = 'running';
-    // });
+    function scrollLoop() {
+        scrollAmount += 1; // px per frame
+        if (scrollAmount >= totalWidth) {
+            scrollAmount = 0;
+        }
+        testimonialTrack.style.transform = `translateX(-${scrollAmount}px)`;
+        requestAnimationFrame(scrollLoop);
+    }
+
+    scrollLoop();
+
+    // Optional: Pause on hover
+    let paused = false;
+    testimonialTrack.addEventListener('mouseenter', () => { paused = true; });
+    testimonialTrack.addEventListener('mouseleave', () => { paused = false; });
+    function scrollLoopPauseable() {
+        if (!paused) {
+            scrollAmount += 1;
+            if (scrollAmount >= totalWidth) {
+                scrollAmount = 0;
+            }
+            testimonialTrack.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+        requestAnimationFrame(scrollLoopPauseable);
+    }
+    // Uncomment below to enable pause on hover
+    // scrollLoopPauseable();
 }
 
 // Call the carousel initialization when the page loads
