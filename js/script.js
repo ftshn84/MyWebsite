@@ -1,4 +1,115 @@
 // ============================================
+// LANGUAGE SWITCHER FUNCTIONALITY
+// ============================================
+const translations = {
+    en: {
+        home: 'Home',
+        coaching: 'COACHING',
+        ledercoaching: 'LEDERCOACHING',
+        teamcoaching: 'TEAMCOACHING',
+        successStories: 'Success Stories',
+        oneToOne: '1:1 COACHING',
+        booking: 'Booking',
+        contact: 'Contact',
+        headerTitle: 'GREAT DANE',
+        homeTitle: 'GREAT DANE COACHING',
+        homeText: 'A reminder for you: successful leadership begins with how you treat people. When you listen with intention, support with honesty, and inspire through your actions, others naturally follow. Lead with clarity and trust, and you\'ll create a space where everyone can grow.',
+        coachingTitle: 'COACHING',
+        coachingText: 'This section provides information about the website and its purpose. Scroll down to see more content and test the fixed header functionality.',
+        ledercoachingTitle: 'LEDERCOACHING',
+        ledercoachingText: 'Our leader coaching programs are designed to develop and enhance your leadership skills. The header remains fixed at the top as you scroll through this content.',
+        teamcoachingTitle: 'TEAMCOACHING',
+        teamcoachingText: 'Our team coaching programs are designed to strengthen collaboration, improve communication, and build high-performing teams. Unlock your team\'s full potential with our expert guidance.',
+        successStoriesTitle: 'Success Stories',
+        successStoriesText: 'Hear from our clients about their transformations and achievements.',
+        oneToOneTitle: '1:1 COACHING',
+        oneToOneText: 'Personalized one-on-one coaching tailored to your unique needs and goals. Work directly with our expert coaches to accelerate your professional growth and achieve breakthrough results.',
+        bookingTitle: 'Book an Appointment',
+        bookingText: 'Select a date from the calendar below to schedule your appointment.',
+        contactTitle: 'Contact',
+        cookieText: 'We use cookies to enhance your experience on our website. Cookies help us understand how you use our site and improve your browsing experience.',
+        cookieAccept: 'Accept All',
+        cookieReject: 'Reject',
+        footer: '© 2026 GREAT DANE COACHING, Danmark',
+    },
+    da: {
+        home: 'Forside',
+        coaching: 'COACHING',
+        ledercoaching: 'LEDERCOACHING',
+        teamcoaching: 'TEAMCOACHING',
+        successStories: 'Succes historier',
+        oneToOne: '1:1 COACHING',
+        booking: 'Booking',
+        contact: 'Kontakt',
+        headerTitle: 'GREAT DANE',
+        homeTitle: 'GREAT DANE COACHING',
+        homeText: 'En påmindelse til dig: Succesfuld ledelse begynder med, hvordan du behandler mennesker. Når du lytter med intention, støtter med ærlighed og inspirerer gennem dine handlinger, følger andre naturligt. Led med klarhed og tillid, og du skaber et rum, hvor alle kan vokse.',
+        coachingTitle: 'COACHING',
+        coachingText: 'Denne sektion giver information om hjemmesiden og dens formål. Scroll ned for at se mere indhold og test den faste header-funktion.',
+        ledercoachingTitle: 'LEDERCOACHING',
+        ledercoachingText: 'Vores ledercoaching-programmer er designet til at udvikle og styrke dine lederevner. Headeren forbliver fast øverst, mens du scroller gennem dette indhold.',
+        teamcoachingTitle: 'TEAMCOACHING',
+        teamcoachingText: 'Vores teamcoaching-programmer er designet til at styrke samarbejdet, forbedre kommunikationen og opbygge højtydende teams. Frigør dit teams fulde potentiale med vores ekspertvejledning.',
+        successStoriesTitle: 'Succes historier',
+        successStoriesText: 'Læs om vores klienters transformationer og resultater.',
+        oneToOneTitle: '1:1 COACHING',
+        oneToOneText: 'Personlig én-til-én coaching tilpasset dine unikke behov og mål. Arbejd direkte med vores eksperter for at accelerere din professionelle udvikling og opnå gennembrud.',
+        bookingTitle: 'Book en tid',
+        bookingText: 'Vælg en dato i kalenderen nedenfor for at booke din tid.',
+        contactTitle: 'Kontakt',
+        cookieText: 'Vi bruger cookies for at forbedre din oplevelse på vores hjemmeside. Cookies hjælper os med at forstå, hvordan du bruger vores side og forbedre din browsingoplevelse.',
+        cookieAccept: 'Accepter alle',
+        cookieReject: 'Afvis',
+        footer: '© 2026 GREAT DANE COACHING, Danmark',
+    }
+};
+
+function setLanguage(lang) {
+    // Navigation buttons
+    document.querySelector('.nav-btn[href="#home"]').textContent = translations[lang].home;
+    document.querySelector('.nav-btn[href="#coaching"]').textContent = translations[lang].coaching;
+    document.querySelector('.nav-btn[href="#ledercoaching"]').textContent = translations[lang].ledercoaching;
+    document.querySelector('.nav-btn[href="#teamcoaching"]').textContent = translations[lang].teamcoaching;
+    document.querySelector('.nav-btn[href="#success-stories"]').textContent = translations[lang].successStories;
+    document.querySelector('.nav-btn[href="#1-1-coaching"]').textContent = translations[lang].oneToOne;
+    document.querySelector('.nav-btn[href="#booking"]').textContent = translations[lang].booking;
+    document.querySelector('.nav-btn[href="#contact"]').textContent = translations[lang].contact;
+
+    // Section titles and texts
+    document.querySelector('.logo-text').textContent = translations[lang].headerTitle;
+    document.querySelector('#home h1').textContent = translations[lang].homeTitle;
+    document.querySelector('#home .home-right p').textContent = translations[lang].homeText;
+    document.querySelector('#coaching h2').textContent = translations[lang].coachingTitle;
+    document.querySelector('#coaching p').textContent = translations[lang].coachingText;
+    document.querySelector('#ledercoaching h2').textContent = translations[lang].ledercoachingTitle;
+    document.querySelector('#ledercoaching p').textContent = translations[lang].ledercoachingText;
+    document.querySelector('#teamcoaching h2').textContent = translations[lang].teamcoachingTitle;
+    document.querySelector('#teamcoaching p').textContent = translations[lang].teamcoachingText;
+    document.querySelector('#success-stories h2').textContent = translations[lang].successStoriesTitle;
+    document.querySelector('#success-stories p').textContent = translations[lang].successStoriesText;
+    document.querySelector('#1-1-coaching h2').textContent = translations[lang].oneToOneTitle;
+    document.querySelector('#1-1-coaching p').textContent = translations[lang].oneToOneText;
+    document.querySelector('#booking h2').textContent = translations[lang].bookingTitle;
+    document.querySelector('#booking p').textContent = translations[lang].bookingText;
+    document.querySelector('#contact h2').textContent = translations[lang].contactTitle;
+
+    // Cookie banner
+    document.querySelector('.cookie-text p').textContent = translations[lang].cookieText;
+    document.getElementById('accept-cookies').textContent = translations[lang].cookieAccept;
+    document.getElementById('reject-cookies').textContent = translations[lang].cookieReject;
+
+    // Footer
+    document.querySelector('.footer p').textContent = translations[lang].footer;
+}
+
+document.getElementById('language-select').addEventListener('change', function(e) {
+    setLanguage(e.target.value);
+});
+
+// Set default language on load
+window.addEventListener('DOMContentLoaded', function() {
+    setLanguage(document.getElementById('language-select').value);
+});
 // JAVASCRIPT - INTERACTIVE FUNCTIONALITY
 // ============================================
 
