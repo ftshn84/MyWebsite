@@ -75,31 +75,32 @@ body {
 
 /* Navigation links list styling */
 .nav-links {
-    display: flex; /* Horizontal layout for buttons */
-    list-style: none; /* Remove bullet points */
-    gap: 5px; /* Reduced space between buttons */
+    display: flex;
+    list-style: none;
+    gap: 3px; /* Smaller gap between buttons */
     align-items: center;
-    margin-left: auto; /* Push buttons to the right */
+    justify-content: flex-end;
+    margin-left: auto;
 }
 
 /* Individual navigation button styling */
 .nav-btn {
-    color: #ecf0f1; /* Light text color */
-    text-decoration: none; /* Remove underline from links */
-    padding: 8px 12px; /* Reduced padding for smaller buttons */
-    border-radius: 4px; /* Slightly rounded corners */
-    transition: all 0.3s ease; /* Smooth animation on hover */
-    font-size: 12px; /* Smaller font size */
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 4px 8px; /* Smaller padding */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 11px; /* Smaller font size */
     font-weight: 500;
-    display: flex; /* Use flex to center content */
-    align-items: center; /* Vertically center text */
-    justify-content: center; /* Horizontally center text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    background-color: #000000; /* Black background */
-    border: 1px solid #666666; /* Gray border */
-    min-width: 70px; /* Reduced minimum width */
-    height: 35px; /* Reduced height for all buttons */
-    white-space: nowrap; /* Prevent text wrapping */
+    background-color: #000000;
+    border: 1px solid #666666;
+    min-width: 50px; /* Smaller minimum width */
+    height: 28px; /* Smaller height */
+    white-space: nowrap;
 }
 
 /* Hover effect for buttons - changes background color */
