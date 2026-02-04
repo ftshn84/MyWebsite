@@ -88,10 +88,15 @@ body {
     transition: all 0.3s ease; /* Smooth animation on hover */
     font-size: 14px;
     font-weight: 500;
-    display: block;
+    display: flex; /* Use flex to center content */
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
     cursor: pointer;
     background-color: #000000; /* Black background */
     border: 1px solid #666666; /* Gray border */
+    min-width: 85px; /* Minimum width for consistency */
+    height: 40px; /* Fixed height for all buttons */
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Hover effect for buttons - changes background color */

@@ -75,14 +75,18 @@ function removeActiveFromButtons() {
 function updateActiveButton() {
     // Get all section elements
     const sections = document.querySelectorAll('.section');
+    let activeFound = false;
 
-    // Find which section is currently in view
-    sections.forEach((section) => {
-        // Get the position of the section relative to the viewport
+    // Loop backwards through sections to find the one currently in view
+    for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
         const sectionTop = section.offsetTop;
 
-        // Check if the section is currently visible
-        if (window.scrollY >= sectionTop - 100) {
+        // Check if the section is currently visible (accounting for header height)
+        if (window.scrollY >= sectionTop - 90) {
+            // Remove active from all buttons first
+            removeActiveFromButtons();
+
             // Get the section's ID
             const sectionId = section.getAttribute('id');
 
@@ -95,8 +99,10 @@ function updateActiveButton() {
             if (correspondingButton) {
                 correspondingButton.classList.add('active');
             }
+            activeFound = true;
+            break;
         }
-    });
+    }
 }
 
 // ============================================
