@@ -159,6 +159,135 @@ if (settingsButton) {
 }
 
 // ============================================
+// CALENDAR FUNCTIONALITY
+// ============================================
+
+/**
+ * Initialize and display the calendar
+ */
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let selectedDate = null;
+
+/**
+ * Generate and display the calendar for current month/year
+ */
+function generateCalendar() {
+    // Get the first day of the month and number of days
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate();
+
+    // Update month/year display
+    const monthYearElement = document.getElementById('monthYear');
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+    monthYearElement.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+    // Clear previous calendar days
+    const calendarDaysElement = document.getElementById('calendarDays');
+    calendarDaysElement.innerHTML = '';
+
+    // Add previous month's days (grayed out)
+    for (let i = firstDay - 1; i >= 0; i--) {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day empty';
+        dayDiv.textContent = daysInPrevMonth - i;
+        calendarDaysElement.appendChild(dayDiv);
+    }
+
+    // Add current month's days
+    const today = new Date();
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day';
+        dayDiv.textContent = day;
+
+        // Check if this is today
+        if (day === today.getDate() && 
+            currentMonth === today.getMonth() && 
+            currentYear === today.getFullYear()) {
+            dayDiv.classList.add('today');
+        }
+
+        // Add click event to select date
+        dayDiv.addEventListener('click', () => {
+            selectDate(day, currentMonth, currentYear);
+        });
+
+        calendarDaysElement.appendChild(dayDiv);
+    }
+
+    // Add next month's days (grayed out)
+    const totalCells = calendarDaysElement.children.length + firstDay;
+    const remainingCells = 42 - totalCells; // 6 rows × 7 days
+    for (let day = 1; day <= remainingCells; day++) {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day empty';
+        dayDiv.textContent = day;
+        calendarDaysElement.appendChild(dayDiv);
+    }
+}
+
+/**
+ * Handle date selection
+ */
+function selectDate(day, month, year) {
+    // Remove previously selected date highlight
+    document.querySelectorAll('.calendar-day.selected').forEach(el => {
+        el.classList.remove('selected');
+    });
+
+    // Find and highlight the selected date
+    const dayElements = document.querySelectorAll('.calendar-day:not(.empty)');
+    let dayCounter = 0;
+    dayElements.forEach(el => {
+        dayCounter++;
+        if (dayCounter === day) {
+            el.classList.add('selected');
+        }
+    });
+
+    // Store selected date and display it
+    selectedDate = new Date(year, month, day);
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+    const dateString = `${monthNames[month]} ${day}, ${year}`;
+    document.getElementById('selectedDate').textContent = dateString;
+
+    console.log(`Appointment booked for: ${dateString}`);
+}
+
+/**
+ * Navigate to previous month
+ */
+document.getElementById('prevMonth').addEventListener('click', () => {
+    currentMonth--;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    }
+    generateCalendar();
+});
+
+/**
+ * Navigate to next month
+ */
+document.getElementById('nextMonth').addEventListener('click', () => {
+    currentMonth++;
+    if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    generateCalendar();
+});
+
+/**
+ * Initialize calendar on page load
+ */
+generateCalendar();
+
+// ============================================
 // LOG CONFIRMATION
 // ============================================
 
