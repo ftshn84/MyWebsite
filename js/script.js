@@ -322,8 +322,11 @@ function initializeTestimonialCarousel() {
     const cardWidth = cards[0].offsetWidth + 20; // card width + gap
     const totalWidth = cardWidth * cards.length;
 
+    // Lower scroll speed for longer card visibility
+    const scrollSpeed = 1.2; // px per frame (4x faster than previous)
+
     function scrollLoop() {
-        scrollAmount += 1; // px per frame
+        scrollAmount += scrollSpeed;
         if (scrollAmount >= totalWidth) {
             scrollAmount = 0;
         }

@@ -539,7 +539,8 @@ body {
 .testimonial-track {
     display: flex; /* Arrange cards horizontally */
     gap: 20px;
-    animation: scroll-carousel 5s linear infinite; /* Auto-scroll animation: 40s duration, loops infinitely */
+    min-width: max-content; /* Ensure track is wide enough for all cards */
+    animation: none; /* Remove old CSS animation, now handled by JS */
     padding: 0 20px;
     /* The animation moves the track left and loops seamlessly */
 }
@@ -557,7 +558,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0;
 }
 
 /* Content wrapper inside testimonial card */
