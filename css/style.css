@@ -127,6 +127,7 @@ body {
 
 /* Section styling - each content area */
 .section {
+        scroll-margin-top: 80px; /* Offset for fixed header height */
     max-width: 1000px; /* Maximum content width for readability */
     margin: 0 auto 60px auto; /* Center content and space between sections */
     background-color: #1a1a1a; /* Dark background */
