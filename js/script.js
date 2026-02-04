@@ -335,3 +335,70 @@ function initializeTestimonialCarousel() {
 
 // Call the carousel initialization when the page loads
 initializeTestimonialCarousel();
+
+// ============================================
+// COOKIE CONSENT BANNER FUNCTIONALITY
+// ============================================
+
+/**
+ * Cookie Consent Manager
+ * Handles displaying the cookie consent banner and storing user preferences
+ * The preference is saved in localStorage so it persists across page reloads
+ */
+function initializeCookieBanner() {
+    // Get the cookie banner and button elements from the HTML
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptButton = document.getElementById('accept-cookies');
+    const rejectButton = document.getElementById('reject-cookies');
+
+    // Check if the user has already made a cookie decision
+    // localStorage stores persistent data in the browser
+    const cookieConsent = localStorage.getItem('cookieConsent');
+
+    if (!cookieBanner || !acceptButton || !rejectButton) {
+        console.log('Cookie banner elements not found');
+        return;
+    }
+
+    // If the user has already chosen, hide the banner immediately
+    if (cookieConsent) {
+        console.log(`✓ Cookie preference found: ${cookieConsent}`);
+        cookieBanner.classList.add('hidden'); // Hide the banner with animation
+    } else {
+        console.log('✓ Cookie banner displayed - awaiting user decision');
+    }
+
+    // Accept All button - user agrees to cookies
+    acceptButton.addEventListener('click', () => {
+        // Store the acceptance decision in localStorage with timestamp
+        localStorage.setItem('cookieConsent', 'accepted');
+        localStorage.setItem('cookieConsentDate', new Date().toISOString());
+
+        // Log to console for debugging
+        console.log('✓ User accepted cookies');
+
+        // Hide the banner with smooth animation
+        cookieBanner.classList.add('hidden');
+
+        // Optionally: Load analytics or tracking scripts here
+        // loadAnalyticsScripts();
+    });
+
+    // Reject button - user declines non-essential cookies
+    rejectButton.addEventListener('click', () => {
+        // Store the rejection decision
+        localStorage.setItem('cookieConsent', 'rejected');
+        localStorage.setItem('cookieConsentDate', new Date().toISOString());
+
+        // Log to console
+        console.log('✓ User rejected cookies');
+
+        // Hide the banner
+        cookieBanner.classList.add('hidden');
+
+        // Optional: Only essential cookies are used; tracking cookies are not loaded
+    });
+}
+
+// Initialize the cookie banner when the page loads
+initializeCookieBanner();
