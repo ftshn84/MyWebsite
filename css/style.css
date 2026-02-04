@@ -49,9 +49,22 @@ body {
 .logo {
     font-size: 24px; /* Large font for logo */
     font-weight: bold;
-    color: #ecf0f1; /* Light color for contrast */
+    color: #FFD700; /* Gold color */
     text-decoration: none;
     cursor: pointer;
+    transition: all 0.3s ease; /* Smooth animation */
+    text-shadow: 
+        0 0 10px #FFD700,
+        0 0 20px #FFA500; /* Subtle neon glow effect */
+}
+
+/* Logo hover effect */
+.logo:hover {
+    text-shadow: 
+        0 0 10px #FFD700,
+        0 0 20px #FFA500,
+        0 0 30px #FF8C00; /* Slightly brighter on hover */
+    transform: scale(1.05); /* Slight scale up */
 }
 
 /* Navigation links list styling */
@@ -73,18 +86,20 @@ body {
     font-weight: 500;
     display: block;
     cursor: pointer;
+    background-color: #000000; /* Black background */
+    border: 1px solid #666666; /* Gray border */
 }
 
 /* Hover effect for buttons - changes background color */
 .nav-btn:hover {
-    background-color: #3498db; /* Bright blue on hover */
+    background-color: #333333; /* Gray on hover */
     color: #fff; /* Pure white text */
     transform: translateY(-2px); /* Slight upward movement */
 }
 
 /* Active state for buttons - when currently selected */
 .nav-btn.active {
-    background-color: #e74c3c; /* Red highlight for active */
+    background-color: #333333; /* Gray background like hover */
     color: #fff;
 }
 

@@ -37,6 +37,17 @@ navButtons.forEach((button) => {
             button.classList.add('active');
         }
     });
+
+    // Add hover event listeners to deselect on hover
+    button.addEventListener('mouseenter', () => {
+        removeActiveFromButtons();
+    });
+
+    // Restore active state when mouse leaves if button was previously active
+    button.addEventListener('mouseleave', () => {
+        // Re-check which button should be active based on scroll position
+        updateActiveButton();
+    });
 });
 
 // ============================================
@@ -54,14 +65,14 @@ function removeActiveFromButtons() {
 }
 
 // ============================================
-// HIGHLIGHT ACTIVE SECTION ON SCROLL
+// UPDATE ACTIVE BUTTON BASED ON SCROLL
 // ============================================
 
 /**
- * This function runs whenever the user scrolls the page
- * It automatically highlights the current section in the navigation
+ * This function determines which button should be active based on current scroll position
+ * Used when mouse leaves a button to restore the correct active state
  */
-window.addEventListener('scroll', () => {
+function updateActiveButton() {
     // Get all section elements
     const sections = document.querySelectorAll('.section');
 
@@ -69,15 +80,11 @@ window.addEventListener('scroll', () => {
     sections.forEach((section) => {
         // Get the position of the section relative to the viewport
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
 
         // Check if the section is currently visible
         if (window.scrollY >= sectionTop - 100) {
             // Get the section's ID
             const sectionId = section.getAttribute('id');
-
-            // Remove active class from all buttons
-            removeActiveFromButtons();
 
             // Find and highlight the corresponding navigation button
             const correspondingButton = document.querySelector(
@@ -90,6 +97,18 @@ window.addEventListener('scroll', () => {
             }
         }
     });
+}
+
+// ============================================
+// HIGHLIGHT ACTIVE SECTION ON SCROLL
+// ============================================
+
+/**
+ * This function runs whenever the user scrolls the page
+ * It automatically highlights the current section in the navigation
+ */
+window.addEventListener('scroll', () => {
+    updateActiveButton();
 });
 
 // ============================================
