@@ -65,15 +65,15 @@ const translations = {
 };
 
 function setLanguage(lang) {
-    // Navigation buttons
-    document.querySelector('.nav-btn[href="#home"]').textContent = translations[lang].home;
-    document.querySelector('.nav-btn[href="#coaching"]').textContent = translations[lang].coaching;
-    document.querySelector('.nav-btn[href="#ledercoaching"]').textContent = translations[lang].ledercoaching;
-    document.querySelector('.nav-btn[href="#teamcoaching"]').textContent = translations[lang].teamcoaching;
-    document.querySelector('.nav-btn[href="#success-stories"]').textContent = translations[lang].successStories;
-    document.querySelector('.nav-btn[href="#1-1-coaching"]').textContent = translations[lang].oneToOne;
-    document.querySelector('.nav-btn[href="#booking"]').textContent = translations[lang].booking;
-    document.querySelector('.nav-btn[href="#contact"]').textContent = translations[lang].contact;
+    // Navigation buttons (force uppercase)
+    document.querySelector('.nav-btn[href="#home"]').textContent = translations[lang].home.toUpperCase();
+    document.querySelector('.nav-btn[href="#coaching"]').textContent = translations[lang].coaching.toUpperCase();
+    document.querySelector('.nav-btn[href="#ledercoaching"]').textContent = translations[lang].ledercoaching.toUpperCase();
+    document.querySelector('.nav-btn[href="#teamcoaching"]').textContent = translations[lang].teamcoaching.toUpperCase();
+    document.querySelector('.nav-btn[href="#success-stories"]').textContent = translations[lang].successStories.toUpperCase();
+    document.querySelector('.nav-btn[href="#1-1-coaching"]').textContent = translations[lang].oneToOne.toUpperCase();
+    document.querySelector('.nav-btn[href="#booking"]').textContent = translations[lang].booking.toUpperCase();
+    document.querySelector('.nav-btn[href="#contact"]').textContent = translations[lang].contact.toUpperCase();
 
     // Section titles and texts
     document.querySelector('.logo-text').textContent = translations[lang].headerTitle;
