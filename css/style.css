@@ -1,3 +1,12 @@
+/* Ensure testimonial carousel and all sections are below header */
+#testimonial-carousel-container,
+.testimonial-carousel,
+.testimonial-track,
+.section,
+.main-content {
+    position: relative;
+    z-index: 1 !important;
+}
 /* ============================================
    GENERAL STYLES
    ============================================ */
@@ -29,21 +38,11 @@ body {
     right: 0;
     width: 100%; /* Full width of viewport */
     background-color: #000000; /* Black background color */
-        flex: 0 0 420px; /* Fixed width for each card */
-        max-width: 90vw;
-        min-width: 280px;
-        background-color: #000000;
-        border-radius: 8px;
-        padding: 24px 18px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
     padding: 0 20px; /* Horizontal padding */
     max-width: 1200px; /* Maximum width for large screens */
     margin: 0 auto; /* Center the nav container */
     height: 70px; /* Fixed height for the header */
+    z-index: 1000 !important; /* Highest z-index to ensure it stays above all elements */
 }
 
 /* Logo styling */
@@ -100,6 +99,10 @@ body {
     min-width: 50px; /* Smaller minimum width */
     height: 28px; /* Smaller height */
     white-space: nowrap;
+        main.main-content, section.section, .testimonial-carousel, .testimonial-track {
+            position: relative;
+            z-index: 1; /* Ensure these elements are below the header */
+        }
 }
 
 /* Hover effect for buttons - changes background color */
