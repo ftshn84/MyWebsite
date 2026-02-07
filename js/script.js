@@ -102,12 +102,12 @@ function setLanguage(lang) {
     document.querySelector('.footer p').textContent = translations[lang].footer;
 }
 
-document.getElementById('language-select').addEventListener('change', function(e) {
+document.getElementById('language-select').addEventListener('change', function (e) {
     setLanguage(e.target.value);
 });
 
 // Set default language on load
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     setLanguage(document.getElementById('language-select').value);
 });
 // JAVASCRIPT - INTERACTIVE FUNCTIONALITY
@@ -292,7 +292,7 @@ function generateCalendar() {
     // Update month/year display
     const monthYearElement = document.getElementById('monthYear');
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                        'July', 'August', 'September', 'October', 'November', 'December'];
+        'July', 'August', 'September', 'October', 'November', 'December'];
     monthYearElement.textContent = `${monthNames[currentMonth]} ${currentYear}`;
 
     // Clear previous calendar days
@@ -315,8 +315,8 @@ function generateCalendar() {
         dayDiv.textContent = day;
 
         // Check if this is today
-        if (day === today.getDate() && 
-            currentMonth === today.getMonth() && 
+        if (day === today.getDate() &&
+            currentMonth === today.getMonth() &&
             currentYear === today.getFullYear()) {
             dayDiv.classList.add('today');
         }
@@ -362,7 +362,7 @@ function selectDate(day, month, year) {
     // Store selected date and display it
     selectedDate = new Date(year, month, day);
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-                        'July', 'August', 'September', 'October', 'November', 'December'];
+        'July', 'August', 'September', 'October', 'November', 'December'];
     const dateString = `${monthNames[month]} ${day}, ${year}`;
     document.getElementById('selectedDate').textContent = dateString;
 
@@ -465,8 +465,13 @@ function initializeTestimonialCarousel() {
     // scrollLoopPauseable();
 }
 
-// Call the carousel initialization when the page loads
-initializeTestimonialCarousel();
+// Call the carousel initialization after testimonials are rendered
+document.addEventListener('DOMContentLoaded', function () {
+    // Wait for testimonials to be rendered (by components.js)
+    setTimeout(() => {
+        initializeTestimonialCarousel();
+    }, 0);
+});
 
 // ============================================
 // COOKIE CONSENT BANNER FUNCTIONALITY
