@@ -254,12 +254,16 @@ navButtons.forEach((button) => {
 
         // Smooth scroll to the target section
         if (targetSection) {
-            // Calculate offset for fixed header
+            // Calculate offset for fixed header and scroll-margin-top
             const header = document.querySelector('.header');
             const headerHeight = header ? header.offsetHeight : 0;
+            // Get computed scroll-margin-top of the section
+            const sectionStyles = window.getComputedStyle(targetSection);
+            let scrollMarginTop = parseInt(sectionStyles.scrollMarginTop) || 0;
+            // Final offset: section top minus header height plus scroll-margin-top
             const sectionTop = targetSection.getBoundingClientRect().top + window.pageYOffset;
             window.scrollTo({
-                top: sectionTop - headerHeight,
+                top: sectionTop - headerHeight + scrollMarginTop,
                 behavior: 'smooth'
             });
             // Update active button styling
