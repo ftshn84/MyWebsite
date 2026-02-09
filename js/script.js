@@ -106,9 +106,42 @@ document.getElementById('language-select').addEventListener('change', function (
     setLanguage(e.target.value);
 });
 
-// Set default language on load
+// THEME MODE SWITCHER
+const modeToggleBtn = document.getElementById('mode-toggle');
+const modeOrder = ['dark', 'light', 'dork'];
+const modeLabels = {
+    dark: '🌙 Dark',
+    light: '☀️ Light',
+    dork: '🤓 Dork'
+};
+function setMode(mode) {
+    document.body.classList.remove('light-mode', 'dork-mode');
+    if (mode === 'light') {
+        document.body.classList.add('light-mode');
+    } else if (mode === 'dork') {
+        document.body.classList.add('dork-mode');
+    }
+    // Save mode in localStorage
+    localStorage.setItem('themeMode', mode);
+    // Update button label
+    if (modeToggleBtn) modeToggleBtn.textContent = modeLabels[mode];
+}
+function getNextMode(current) {
+    const idx = modeOrder.indexOf(current);
+    return modeOrder[(idx + 1) % modeOrder.length];
+}
+if (modeToggleBtn) {
+    modeToggleBtn.addEventListener('click', function () {
+        const current = localStorage.getItem('themeMode') || 'dark';
+        const next = getNextMode(current);
+        setMode(next);
+    });
+}
+// Set default mode on load
 window.addEventListener('DOMContentLoaded', function () {
     setLanguage(document.getElementById('language-select').value);
+    const savedMode = localStorage.getItem('themeMode') || 'dark';
+    setMode(savedMode);
 });
 // JAVASCRIPT - INTERACTIVE FUNCTIONALITY
 // ============================================

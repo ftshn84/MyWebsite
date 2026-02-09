@@ -1,0 +1,47 @@
+/* Home Section Styles */
+
+
+.home-container {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    min-height: 400px;
+}
+
+.home-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.home-left h1 {
+    font-size: 48px;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+.home-left p {
+    font-size: 24px;
+    color: var(--color-accent);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.home-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+
+.home-right p {
+    font-size: 18px;
+    color: var(--color-text);
+    line-height: 1.8;
+    text-align: left;
+    font-style: italic;
+}
