@@ -1,3 +1,51 @@
+@media (max-width: 768px) {
+    .calendar-container {
+        max-width: 98vw;
+        padding: 10px;
+    }
+    .calendar-header h3 {
+        font-size: 16px;
+    }
+    .calendar-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    .calendar-grid {
+        gap: 2px;
+    }
+    .day-header {
+        font-size: 10px;
+        padding: 6px;
+    }
+    .calendar-day {
+        font-size: 12px;
+        padding: 2px;
+    }
+}
+@media (max-width: 480px) {
+    .calendar-container {
+        max-width: 100vw;
+        padding: 5px;
+    }
+    .calendar-header h3 {
+        font-size: 12px;
+    }
+    .calendar-btn {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+    .calendar-grid {
+        gap: 1px;
+    }
+    .day-header {
+        font-size: 8px;
+        padding: 3px;
+    }
+    .calendar-day {
+        font-size: 10px;
+        padding: 1px;
+    }
+}
 /* Calendar Styles */
 
 

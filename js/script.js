@@ -1,3 +1,45 @@
+// Hamburger menu functionality
+const hamburger = document.getElementById('nav-hamburger');
+const dropdown = document.getElementById('nav-dropdown');
+const dropdownModeToggle = document.getElementById('dropdown-mode-toggle');
+const dropdownLanguageSelect = document.getElementById('dropdown-language-select');
+
+if (hamburger && dropdown) {
+    hamburger.addEventListener('click', function () {
+        dropdown.classList.toggle('active');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target) && !hamburger.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+}
+
+// Sync mode toggle in dropdown
+if (dropdownModeToggle) {
+    dropdownModeToggle.addEventListener('click', function () {
+        const current = localStorage.getItem('themeMode') || 'dark';
+        const next = getNextMode(current);
+        setMode(next);
+        dropdownModeToggle.textContent = modeLabels[next];
+        if (modeToggleBtn) modeToggleBtn.textContent = modeLabels[next];
+    });
+}
+
+// Sync language select in dropdown
+if (dropdownLanguageSelect) {
+    dropdownLanguageSelect.addEventListener('change', function (e) {
+        setLanguage(e.target.value);
+        document.getElementById('language-select').value = e.target.value;
+    });
+}
+if (document.getElementById('language-select')) {
+    document.getElementById('language-select').addEventListener('change', function (e) {
+        setLanguage(e.target.value);
+        if (dropdownLanguageSelect) dropdownLanguageSelect.value = e.target.value;
+    });
+}
 // ============================================
 // LANGUAGE SWITCHER FUNCTIONALITY
 // ============================================
