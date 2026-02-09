@@ -125,6 +125,15 @@ function setMode(mode) {
     localStorage.setItem('themeMode', mode);
     // Update button label
     if (modeToggleBtn) modeToggleBtn.textContent = modeLabels[mode];
+    // Switch logo image
+    const logoImg = document.querySelector('.logo-img');
+    if (logoImg) {
+        if (mode === 'light') {
+            logoImg.src = 'css/logoLightmode.png';
+        } else {
+            logoImg.src = 'css/LogoGreatDane.png';
+        }
+    }
 }
 function getNextMode(current) {
     const idx = modeOrder.indexOf(current);
