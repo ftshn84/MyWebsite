@@ -62,51 +62,79 @@
     width: 90%;
     margin: 8px 16px;
 }
-@media (max-width: 768px) {
-    .nav-links {
-        display: none !important;
-    }
-    .nav-hamburger {
-        display: flex !important;
-    }
-    .nav-dropdown {
-        display: none;
-    }
-    .nav-dropdown.active {
-        display: block;
-    }
+/* Header: single flex row, logo left, nav/nav-links/darkmode/lang right, no wrapping */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--color-header);
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70px;
+    z-index: 1000 !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-gold);
+    text-decoration: none;
+    cursor: default;
+    white-space: nowrap;
+    margin-right: 24px;
+    flex-shrink: 0;
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    width: auto;
+    min-width: 0;
+}
+.nav-links {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    width: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-links::-webkit-scrollbar {
+    display: none;
+}
+.nav-links > li {
+    white-space: nowrap;
+}
+.nav-btn {
+    white-space: nowrap;
+}
+@media (max-width: 1024px) {
     .header {
         height: 60px;
         padding: 0 10px;
     }
     .logo {
         font-size: 18px;
-    }
-}
-@media (max-width: 480px) {
-    .header {
-        height: 50px;
-        padding: 0 5px;
-    }
-    .logo {
-        font-size: 16px;
-    }
-    .nav-dropdown .nav-btn {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-}
-@media (max-width: 768px) {
-    .header {
-        height: 60px;
-        padding: 0 10px;
-    }
-    .logo {
-        font-size: 18px;
-    }
-    .nav-links {
-        gap: 3px;
-        flex-wrap: wrap;
+        margin-right: 10px;
     }
     .nav-btn {
         font-size: 10px;
@@ -115,23 +143,23 @@
         height: 24px;
     }
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .header {
         height: 50px;
         padding: 0 5px;
     }
     .logo {
         font-size: 16px;
-    }
-    .nav-links {
-        flex-direction: column;
-        gap: 2px;
+        margin-right: 6px;
     }
     .nav-btn {
         font-size: 9px;
         padding: 4px 6px;
         min-width: 30px;
         height: 20px;
+    }
+    .nav-links {
+        gap: 3px;
     }
 }
 .logo-img {
@@ -170,23 +198,7 @@
     margin: 0 auto;
     height: 70px;
     z-index: 1000 !important;
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: var(--color-header);
-    padding: 0 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 70px;
-    z-index: 1000 !important;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
+/* ...existing code... */
 
 
 .logo {
@@ -216,35 +228,7 @@
 }
 
 
-.nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-}
-.nav-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    list-style: none;
-    gap: 3px;
-    align-items: center;
-    justify-content: flex-end;
-    margin-left: auto;
-    overflow-x: auto;
-    scrollbar-width: none;
-    white-space: nowrap;
-}
-.nav-links::-webkit-scrollbar {
-    display: none;
-}
-/* Prevent wrapping of nav items */
-.nav-links > li {
-    white-space: nowrap;
-}
-.nav-btn {
-    white-space: nowrap;
-}
+/* ...existing code... */
 @media (max-width: 1024px) {
     .nav-links {
         display: none !important;
