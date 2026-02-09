@@ -10,6 +10,9 @@
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    margin-right: 0;
+    margin-left: auto;
+    align-self: flex-end;
 }
 .nav-hamburger span {
     display: block;
@@ -242,12 +245,7 @@
 .nav-btn {
     white-space: nowrap;
 }
-@media (max-width: 768px) {
-    .nav-links {
-        display: flex !important;
-    }
-}
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     .nav-links {
         display: none !important;
     }
