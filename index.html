@@ -118,6 +118,33 @@
         <section id="booking" class="section">
             <h2>Book an Appointment</h2>
             <p>Select a date from the calendar below to schedule your appointment.</p>
+            <!-- Booking Modal -->
+            <div id="booking-modal" class="booking-modal" style="display:none;">
+                <div class="booking-modal-content">
+                    <span class="booking-modal-close" id="booking-modal-close">&times;</span>
+                    <h3>Book a Time</h3>
+                    <form id="booking-form">
+                        <div>
+                            <label for="booking-date">Date:</label>
+                            <input type="text" id="booking-date" name="booking-date" readonly>
+                        </div>
+                        <div>
+                            <label for="booking-time">Time:</label>
+                            <select id="booking-time" name="booking-time" required></select>
+                        </div>
+                        <div>
+                            <label for="booking-name">Your Name:</label>
+                            <input type="text" id="booking-name" name="booking-name" required>
+                        </div>
+                        <div>
+                            <label for="booking-email">Your Email:</label>
+                            <input type="email" id="booking-email" name="booking-email" required>
+                        </div>
+                        <button type="submit" class="calendar-btn">Book Appointment</button>
+                    </form>
+                    <div id="booking-success" style="display:none;color:green;margin-top:10px;">Booking successful! We will contact you soon.</div>
+                </div>
+            </div>
             
             <!-- Calendar container -->
             <div class="calendar-container">

@@ -17,11 +17,11 @@
         font-size: 12px;
     }
     .main-content {
-        margin-top: 60px;
+        margin-top: 22px;
     }
     .section {
-        padding: 25px;
-        margin-bottom: 40px;
+        padding: 16px;
+        margin-bottom: 12px;
         background: var(--color-bg-section);
     }
     .section h1 {
@@ -96,12 +96,12 @@
         gap: 3px;
     }
     .main-content {
-        margin-top: 50px;
+        margin-top: 12px;
         padding: 15px 10px;
     }
     .section {
-        padding: 20px;
-        margin-bottom: 30px;
+        padding: 10px;
+        margin-bottom: 8px;
         background: var(--color-bg-section);
     }
     .footer {

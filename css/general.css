@@ -103,8 +103,9 @@ body {
 }
 
 
+
 .main-content {
-    margin-top: 110px;
+    margin-top: 45px;
     padding: 40px 20px;
 }
 
@@ -114,9 +115,9 @@ body {
 }
 
 .section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 45px;
     max-width: 1000px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 28px auto;
     background: var(--color-bg-section);
     color: var(--color-text);
     padding: 40px;

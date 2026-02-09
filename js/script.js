@@ -107,6 +107,12 @@ const translations = {
 };
 
 function setLanguage(lang) {
+    // Helper to escape IDs for querySelector
+    function esc(id) {
+        return id.match(/^\d/)
+            ? `#\\3${id.charAt(0)} ${id.slice(1)}`
+            : `#${id}`;
+    }
     // Navigation buttons (force uppercase)
     document.querySelector('.nav-btn[href="#home"]').textContent = translations[lang].home.toUpperCase();
     document.querySelector('.nav-btn[href="#coaching"]').textContent = translations[lang].coaching.toUpperCase();
@@ -129,8 +135,8 @@ function setLanguage(lang) {
     document.querySelector('#teamcoaching p').textContent = translations[lang].teamcoachingText;
     document.querySelector('#success-stories h2').textContent = translations[lang].successStoriesTitle;
     document.querySelector('#success-stories p').textContent = translations[lang].successStoriesText;
-    document.querySelector('#1-1-coaching h2').textContent = translations[lang].oneToOneTitle;
-    document.querySelector('#1-1-coaching p').textContent = translations[lang].oneToOneText;
+    document.querySelector(esc('1-1-coaching') + ' h2').textContent = translations[lang].oneToOneTitle;
+    document.querySelector(esc('1-1-coaching') + ' p').textContent = translations[lang].oneToOneText;
     document.querySelector('#booking h2').textContent = translations[lang].bookingTitle;
     document.querySelector('#booking p').textContent = translations[lang].bookingText;
     document.querySelector('#contact h2').textContent = translations[lang].contactTitle;
@@ -193,7 +199,33 @@ window.addEventListener('DOMContentLoaded', function () {
     setLanguage(document.getElementById('language-select').value);
     const savedMode = localStorage.getItem('themeMode') || 'dark';
     setMode(savedMode);
+    initializeCookieBanner();
 });
+
+// Cookie Consent Banner Logic
+function initializeCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const rejectBtn = document.getElementById('reject-cookies');
+    if (!banner || !acceptBtn || !rejectBtn) return;
+
+    // Hide banner if already set
+    if (localStorage.getItem('cookieConsent')) {
+        banner.classList.add('hidden');
+        return;
+    } else {
+        banner.classList.remove('hidden');
+    }
+
+    acceptBtn.onclick = function () {
+        localStorage.setItem('cookieConsent', 'accepted');
+        banner.classList.add('hidden');
+    };
+    rejectBtn.onclick = function () {
+        localStorage.setItem('cookieConsent', 'rejected');
+        banner.classList.add('hidden');
+    };
+}
 // JAVASCRIPT - INTERACTIVE FUNCTIONALITY
 // ============================================
 
@@ -222,11 +254,14 @@ navButtons.forEach((button) => {
 
         // Smooth scroll to the target section
         if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth', // Smooth scrolling animation
-                block: 'start' // Align section to the start of viewport
+            // Calculate offset for fixed header
+            const header = document.querySelector('.header');
+            const headerHeight = header ? header.offsetHeight : 0;
+            const sectionTop = targetSection.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+                top: sectionTop - headerHeight,
+                behavior: 'smooth'
             });
-
             // Update active button styling
             removeActiveFromButtons();
             button.classList.add('active');
@@ -558,68 +593,84 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ============================================
-// COOKIE CONSENT BANNER FUNCTIONALITY
+// BOOKING MODAL FUNCTIONALITY
 // ============================================
 
-/**
- * Cookie Consent Manager
- * Handles displaying the cookie consent banner and storing user preferences
- * The preference is saved in localStorage so it persists across page reloads
- */
-function initializeCookieBanner() {
-    // Get the cookie banner and button elements from the HTML
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptButton = document.getElementById('accept-cookies');
-    const rejectButton = document.getElementById('reject-cookies');
+// Example available times (could be fetched from backend)
+const availableTimes = [
+    '09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00'
+];
 
-    // Check if the user has already made a cookie decision
-    // localStorage stores persistent data in the browser
-    const cookieConsent = localStorage.getItem('cookieConsent');
+const bookingModal = document.getElementById('booking-modal');
+const bookingModalClose = document.getElementById('booking-modal-close');
+const bookingForm = document.getElementById('booking-form');
+const bookingDateInput = document.getElementById('booking-date');
+const bookingTimeSelect = document.getElementById('booking-time');
+const bookingSuccess = document.getElementById('booking-success');
 
-    if (!cookieBanner || !acceptButton || !rejectButton) {
-        console.log('Cookie banner elements not found');
-        return;
-    }
-
-    // If the user has already chosen, hide the banner immediately
-    if (cookieConsent) {
-        console.log(`✓ Cookie preference found: ${cookieConsent}`);
-        cookieBanner.classList.add('hidden'); // Hide the banner with animation
-    } else {
-        console.log('✓ Cookie banner displayed - awaiting user decision');
-    }
-
-    // Accept All button - user agrees to cookies
-    acceptButton.addEventListener('click', () => {
-        // Store the acceptance decision in localStorage with timestamp
-        localStorage.setItem('cookieConsent', 'accepted');
-        localStorage.setItem('cookieConsentDate', new Date().toISOString());
-
-        // Log to console for debugging
-        console.log('✓ User accepted cookies');
-
-        // Hide the banner with smooth animation
-        cookieBanner.classList.add('hidden');
-
-        // Optionally: Load analytics or tracking scripts here
-        // loadAnalyticsScripts();
+function showBookingModal(year, month, day) {
+    if (!bookingModal) return;
+    // Format date as YYYY-MM-DD
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    bookingDateInput.value = dateStr;
+    // Populate available times
+    bookingTimeSelect.innerHTML = '';
+    availableTimes.forEach(time => {
+        const opt = document.createElement('option');
+        opt.value = time;
+        opt.textContent = time;
+        bookingTimeSelect.appendChild(opt);
     });
+    bookingSuccess.style.display = 'none';
+    bookingSuccess.style.color = 'green';
+    bookingSuccess.textContent = 'Booking successful! We will contact you soon.';
+    bookingModal.style.display = 'flex';
+}
 
-    // Reject button - user declines non-essential cookies
-    rejectButton.addEventListener('click', () => {
-        // Store the rejection decision
-        localStorage.setItem('cookieConsent', 'rejected');
-        localStorage.setItem('cookieConsentDate', new Date().toISOString());
+function hideBookingModal() {
+    if (bookingModal) bookingModal.style.display = 'none';
+}
 
-        // Log to console
-        console.log('✓ User rejected cookies');
+if (bookingModalClose) {
+    bookingModalClose.addEventListener('click', hideBookingModal);
+}
+window.addEventListener('click', function (e) {
+    if (e.target === bookingModal) hideBookingModal();
+});
 
-        // Hide the banner
-        cookieBanner.classList.add('hidden');
-
-        // Optional: Only essential cookies are used; tracking cookies are not loaded
+if (bookingForm) {
+    bookingForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = {
+            date: bookingDateInput.value,
+            time: bookingTimeSelect.value,
+            name: document.getElementById('booking-name').value,
+            email: document.getElementById('booking-email').value
+        };
+        // Send booking to backend (implement /api/book endpoint)
+        fetch('/api/book', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.ok ? res.json() : Promise.reject(res))
+            .then(() => {
+                bookingSuccess.style.display = 'block';
+                bookingSuccess.style.color = 'green';
+                bookingSuccess.textContent = 'Booking successful! We will contact you soon.';
+                setTimeout(hideBookingModal, 2000);
+            })
+            .catch(() => {
+                bookingSuccess.style.display = 'block';
+                bookingSuccess.style.color = 'red';
+                bookingSuccess.textContent = 'Booking failed. Please try again.';
+            });
     });
 }
 
-// Initialize the cookie banner when the page loads
-initializeCookieBanner();
+// Override selectDate to show modal
+const origSelectDate = selectDate;
+selectDate = function (day, month, year) {
+    origSelectDate(day, month, year);
+    showBookingModal(year, month, day);
+};
