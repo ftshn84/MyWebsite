@@ -156,6 +156,7 @@ document.getElementById('language-select').addEventListener('change', function (
 
 // THEME MODE SWITCHER
 const modeToggleBtn = document.getElementById('mode-toggle');
+// Make dark mode the first choice
 const modeOrder = ['dark', 'light', 'dork'];
 const modeLabels = {
     dark: '🌙 Dark',
@@ -197,8 +198,16 @@ if (modeToggleBtn) {
 // Set default mode on load
 window.addEventListener('DOMContentLoaded', function () {
     setLanguage(document.getElementById('language-select').value);
-    const savedMode = localStorage.getItem('themeMode') || 'dark';
+    // Always default to dark mode if no preference is set
+    let savedMode = localStorage.getItem('themeMode');
+    if (!savedMode || !modeOrder.includes(savedMode)) {
+        savedMode = 'dark';
+        localStorage.setItem('themeMode', 'dark');
+    }
     setMode(savedMode);
+    // Sync dropdown toggle button label if present
+    const dropdownModeToggle = document.getElementById('dropdown-mode-toggle');
+    if (dropdownModeToggle) dropdownModeToggle.textContent = modeLabels[savedMode];
     initializeCookieBanner();
 });
 
