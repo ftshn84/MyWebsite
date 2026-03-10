@@ -116,8 +116,8 @@ body {
 
 .section {
     scroll-margin-top: 45px;
-    max-width: 1000px;
-    margin: 0 auto 28px auto;
+    width: 100%;
+    margin: 0 0 28px 0;
     background: var(--color-bg-section);
     color: var(--color-text);
     padding: 40px;
