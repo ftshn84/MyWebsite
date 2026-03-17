@@ -68,3 +68,8 @@
     width: 100%;
     height: 400px;
 }
+
+body:not(.light-mode):not(.dork-mode) #contact .contact-item,
+body:not(.light-mode):not(.dork-mode) #contact .map-container {
+    background-color: var(--color-bg);
+}
