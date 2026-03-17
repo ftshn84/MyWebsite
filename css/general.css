@@ -146,3 +146,17 @@ body {
     color: var(--color-text);
     margin-bottom: 15px;
 }
+
+#coloregolden.section {
+    background-color: #ccae04;
+    min-height: 160px;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+#colorewhite.section {
+    background-color: #ffffff;
+    min-height: 75px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
