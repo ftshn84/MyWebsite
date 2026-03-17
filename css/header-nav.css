@@ -108,6 +108,14 @@
 .nav-links > li {
     white-space: nowrap;
 }
+
+.header .nav-btn {
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 @media (max-width: 1024px) {
     .header {
         height: 60px;
