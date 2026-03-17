@@ -91,12 +91,11 @@
     gap: 24px;
     flex-wrap: nowrap !important;
     overflow-x: auto;
-    margin-left: auto;
     width: auto;
     white-space: nowrap;
     scrollbar-width: none;
     list-style: none;
-    margin: 0;
+    margin: 0 0 0 auto;
     padding: 0;
     color: var(--color-bg);
     background-color: var(--color-bg);
@@ -117,7 +116,7 @@
 
 .nav-links .nav-btn {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     min-width: 90px;
     height: 36px;
@@ -140,9 +139,8 @@
 
 .nav-links .nav-btn:hover,
 .nav-links .nav-btn:focus-visible {
-    border: none;
-    box-shadow: none;
-    outline: none;
+    border-bottom: red 2px solid;
+
 }
 
 @media (max-width: 1024px) {
