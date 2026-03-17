@@ -53,8 +53,6 @@
     width: 100%;
     background-color: var(--color-header);
     padding: 0 20px;
-    max-width: 1200px;
-    margin: 0 auto;
     height: 70px;
     z-index: 1000 !important;
     display: flex;
@@ -62,6 +60,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-wrap: nowrap;
+    box-sizing: border-box;
 }
 .logo {
     display: flex;
@@ -202,8 +201,6 @@
     width: 100%;
     background-color: var(--color-header);
     padding: 0 20px;
-    max-width: 1200px;
-    margin: 0 auto;
     height: 70px;
     z-index: 1000 !important;
 /* ...existing code... */
