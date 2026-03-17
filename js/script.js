@@ -107,6 +107,13 @@ const translations = {
 };
 
 function setLanguage(lang) {
+    function setText(selector, value) {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.textContent = value;
+        }
+    }
+
     // Helper to escape IDs for querySelector
     function esc(id) {
         return id.match(/^\d/)
@@ -114,40 +121,40 @@ function setLanguage(lang) {
             : `#${id}`;
     }
     // Navigation buttons (force uppercase)
-    document.querySelector('.nav-btn[href="#home"]').textContent = translations[lang].home.toUpperCase();
-    document.querySelector('.nav-btn[href="#coaching"]').textContent = translations[lang].coaching.toUpperCase();
-    document.querySelector('.nav-btn[href="#ledercoaching"]').textContent = translations[lang].ledercoaching.toUpperCase();
-    document.querySelector('.nav-btn[href="#teamcoaching"]').textContent = translations[lang].teamcoaching.toUpperCase();
-    document.querySelector('.nav-btn[href="#success-stories"]').textContent = translations[lang].successStories.toUpperCase();
-    document.querySelector('.nav-btn[href="#1-1-coaching"]').textContent = translations[lang].oneToOne.toUpperCase();
-    document.querySelector('.nav-btn[href="#booking"]').textContent = translations[lang].booking.toUpperCase();
-    document.querySelector('.nav-btn[href="#contact"]').textContent = translations[lang].contact.toUpperCase();
+    setText('.nav-btn[href="#home"]', translations[lang].home.toUpperCase());
+    setText('.nav-btn[href="#coaching"]', translations[lang].coaching.toUpperCase());
+    setText('.nav-btn[href="#ledercoaching"]', translations[lang].ledercoaching.toUpperCase());
+    setText('.nav-btn[href="#teamcoaching"]', translations[lang].teamcoaching.toUpperCase());
+    setText('.nav-btn[href="#success-stories"]', translations[lang].successStories.toUpperCase());
+    setText('.nav-btn[href="#1-1-coaching"]', translations[lang].oneToOne.toUpperCase());
+    setText('.nav-btn[href="#booking"]', translations[lang].booking.toUpperCase());
+    setText('.nav-btn[href="#contact"]', translations[lang].contact.toUpperCase());
 
     // Section titles and texts
-    document.querySelector('.logo-text').textContent = translations[lang].headerTitle;
-    document.querySelector('#home h1').textContent = translations[lang].homeTitle;
-    document.querySelector('#home .home-right p').textContent = translations[lang].homeText;
-    document.querySelector('#coaching h2').textContent = translations[lang].coachingTitle;
-    document.querySelector('#coaching p').textContent = translations[lang].coachingText;
-    document.querySelector('#ledercoaching h2').textContent = translations[lang].ledercoachingTitle;
-    document.querySelector('#ledercoaching p').textContent = translations[lang].ledercoachingText;
-    document.querySelector('#teamcoaching h2').textContent = translations[lang].teamcoachingTitle;
-    document.querySelector('#teamcoaching p').textContent = translations[lang].teamcoachingText;
-    document.querySelector('#success-stories h2').textContent = translations[lang].successStoriesTitle;
-    document.querySelector('#success-stories p').textContent = translations[lang].successStoriesText;
-    document.querySelector(esc('1-1-coaching') + ' h2').textContent = translations[lang].oneToOneTitle;
-    document.querySelector(esc('1-1-coaching') + ' p').textContent = translations[lang].oneToOneText;
-    document.querySelector('#booking h2').textContent = translations[lang].bookingTitle;
-    document.querySelector('#booking p').textContent = translations[lang].bookingText;
-    document.querySelector('#contact h2').textContent = translations[lang].contactTitle;
+    setText('.logo-text', translations[lang].headerTitle);
+    setText('#home h1', translations[lang].homeTitle);
+    setText('#home .home-right p', translations[lang].homeText);
+    setText('#coaching h2', translations[lang].coachingTitle);
+    setText('#coaching p', translations[lang].coachingText);
+    setText('#ledercoaching h2', translations[lang].ledercoachingTitle);
+    setText('#ledercoaching p', translations[lang].ledercoachingText);
+    setText('#teamcoaching h2', translations[lang].teamcoachingTitle);
+    setText('#teamcoaching p', translations[lang].teamcoachingText);
+    setText('#success-stories h2', translations[lang].successStoriesTitle);
+    setText('#success-stories p', translations[lang].successStoriesText);
+    setText(esc('1-1-coaching') + ' h2', translations[lang].oneToOneTitle);
+    setText(esc('1-1-coaching') + ' p', translations[lang].oneToOneText);
+    setText('#booking h2', translations[lang].bookingTitle);
+    setText('#booking p', translations[lang].bookingText);
+    setText('#contact h2', translations[lang].contactTitle);
 
     // Cookie banner
-    document.querySelector('.cookie-text p').textContent = translations[lang].cookieText;
-    document.getElementById('accept-cookies').textContent = translations[lang].cookieAccept;
-    document.getElementById('reject-cookies').textContent = translations[lang].cookieReject;
+    setText('.cookie-text p', translations[lang].cookieText);
+    setText('#accept-cookies', translations[lang].cookieAccept);
+    setText('#reject-cookies', translations[lang].cookieReject);
 
     // Footer
-    document.querySelector('.footer p').textContent = translations[lang].footer;
+    setText('.footer p', translations[lang].footer);
 }
 
 document.getElementById('language-select').addEventListener('change', function (e) {
@@ -251,11 +258,16 @@ const navButtons = document.querySelectorAll('.nav-btn');
  */
 navButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
+        const href = button.getAttribute('href');
+        if (!href || !href.startsWith('#')) {
+            return;
+        }
+
         // Prevent default link behavior (we'll handle scrolling manually)
         event.preventDefault();
 
         // Get the section ID that the button links to (from the href attribute)
-        const sectionId = button.getAttribute('href').substring(1); // Remove the '#' character
+        const sectionId = href.substring(1); // Remove the '#' character
         const targetSection = document.getElementById(sectionId);
 
         // Log message to console when button is clicked
