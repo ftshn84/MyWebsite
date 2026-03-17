@@ -65,14 +65,17 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    height: 100%;
+    gap: 0;
     font-size: 24px;
     font-weight: bold;
     color: var(--color-gold);
     text-decoration: none;
     cursor: default;
     white-space: nowrap;
-    margin-right: 48px;
+    margin: 0;
+    margin-right: 0px;
+    padding: 0;
     flex-shrink: 0;
 }
 .nav {
@@ -229,24 +232,27 @@
 }
 
 .logo-img {
-    height: 400px;
-    width: 400px;
+    height: 100%;
+    width: auto;
+    max-height: 100%;
     object-fit: contain;
     aspect-ratio: 1/1;
     display: block;
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 768px) {
     .logo-img {
-        height: 240px;
-        width: 240px;
+        height: 100%;
+        width: auto;
     }
 }
 
 @media (max-width: 480px) {
     .logo-img {
-        height: 160px;
-        width: 160px;
+        height: 100%;
+        width: auto;
     }
 }
 /* Header & Navigation Styles */
@@ -277,8 +283,9 @@
 }
 
 .logo-img {
-    height: 100px;
-    width: 100px;
+    height: 100%;
+    width: auto;
+    max-height: 100%;
     object-fit: contain;
     aspect-ratio: 1/1;
     display: block;
