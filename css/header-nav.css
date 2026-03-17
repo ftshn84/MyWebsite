@@ -116,6 +116,36 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.nav-links .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    height: 36px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.nav-links .nav-btn:hover,
+.nav-links .nav-btn:focus-visible {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
 @media (max-width: 1024px) {
     .header {
         height: 60px;
