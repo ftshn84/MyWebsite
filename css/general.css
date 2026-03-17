@@ -125,6 +125,10 @@ body {
     box-shadow: none;
 }
 
+body:not(.light-mode):not(.dork-mode) .section {
+    background-color: var(--color-bg);
+}
+
 .section h1 {
     font-size: 36px;
     color: var(--color-accent);
@@ -145,6 +149,25 @@ body {
     font-size: 16px;
     color: var(--color-text);
     margin-bottom: 15px;
+}
+
+body.dork-mode #ledercoaching.section,
+body.dork-mode #teamcoaching.section,
+body.dork-mode #1-1-coaching.section,
+body.dork-mode #success-stories.section,
+body.dork-mode #booking.section,
+body.dork-mode #contact.section {
+    background-color: var(--color-bg);
+}
+
+body.dork-mode #success-stories .testimonial-carousel,
+body.dork-mode #success-stories .testimonial-card,
+body.dork-mode #booking .calendar-container,
+body.dork-mode #booking .selected-date,
+body.dork-mode #contact .contact-item,
+body.dork-mode #contact .map-container,
+body.dork-mode .booking-modal-content {
+    background-color: var(--color-bg);
 }
 
 #coloregolden.section {
