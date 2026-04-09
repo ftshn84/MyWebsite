@@ -60,28 +60,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 0;
     z-index: 2;
 }
 
 .home-center-text {
+    margin: 0 0 6px;
     color: #ffffff;
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.8rem, 7vw, 6rem);
     font-weight: 500;
     letter-spacing: 0.08em;
+    white-space: nowrap;
+    line-height: 0.9;
     text-align: center;
     text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 .home-center-text1 {
+    margin: 0 0 12px;
     color: #ffffff;
-    font-size: clamp(1.3rem, 3vw, 2.5rem);
+    font-size: clamp(1.4rem, 4.8vw, 2.2rem);
     font-weight: 400;
     letter-spacing: 0.08em;
+    white-space: nowrap;
+    line-height: 1.2;
     text-align: center;
     text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
 .home-center-button {
+    margin: 0;
     background-color: #c81919;
     color: #ffffff;
     border: none;
