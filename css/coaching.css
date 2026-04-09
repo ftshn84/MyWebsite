@@ -9,8 +9,8 @@
 
 .coaching-hero-content {
     position: absolute;
-    top: 75%;
-    left: 50%;
+    top: 50%;
+    left: 30%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
 }
 
 .coaching-hero-text {
-    margin: 0 0 6px;
+    margin: 0 0 8px;
     color: #ffffff;
     font-size: clamp(1.8rem, 7vw, 6rem);
     font-weight: 500;
