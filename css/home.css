@@ -134,12 +134,22 @@
     height: 100%;
 }
 
+.identity-purpose-image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: clamp(20px, 5vw, 72px);
+    background-color: var(--color-bg);
+    overflow: hidden;
+}
+
 .identity-purpose-image {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    width: min(46%, 260px);
+    height: auto;
+    max-height: 40vh;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .identity-purpose-text-wrap {
@@ -187,6 +197,13 @@
 
     .identity-purpose-image-wrap {
         height: 38vh;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .identity-purpose-image {
+        width: min(56%, 240px);
+        max-height: 26vh;
     }
 }
 
@@ -201,6 +218,11 @@
 
     .identity-purpose-image-wrap {
         height: 28vh;
+    }
+
+    .identity-purpose-image {
+        width: min(62%, 200px);
+        max-height: 18vh;
     }
 }
 
