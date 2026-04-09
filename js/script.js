@@ -185,9 +185,9 @@ function setMode(mode) {
     const logoImg = document.querySelector('.logo-img');
     if (logoImg) {
         if (mode === 'light') {
-            logoImg.src = 'css/logoLightmode.png';
+            logoImg.src = 'logo/logoLightmode.png';
         } else {
-            logoImg.src = 'css/LogoGreatDane.png';
+            logoImg.src = 'logo/LogoGreatDane.png';
         }
     }
 }
