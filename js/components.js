@@ -15,10 +15,11 @@ function createTestimonialCard({ text, imgSrc, imgAlt, name }) {
 
 // --- Testimonial Carousel Generator ---
 function createTestimonialCarousel(testimonials) {
+    const loopTestimonials = [...testimonials, ...testimonials];
     return `
         <div class="testimonial-carousel">
             <div class="testimonial-track">
-                ${testimonials.map(createTestimonialCard).join('')}
+                ${loopTestimonials.map(createTestimonialCard).join('')}
             </div>
         </div>
     `;

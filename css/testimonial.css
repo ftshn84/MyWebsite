@@ -15,7 +15,7 @@
     display: flex;
     gap: 20px;
     min-width: max-content;
-    animation: none;
+    animation: scroll-carousel 42s linear infinite;
     padding: 0 20px;
 }
 
@@ -79,6 +79,6 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 }
