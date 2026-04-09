@@ -260,4 +260,143 @@
     }
 }
 
+/* Invest in coaching section: mirrors gdc-identity-purpose and is editable here */
+#coaching-invest-in-coaching.section {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#coaching-invest-in-coaching .companies-carousel-section {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#coaching-invest-in-coaching .identity-purpose-layout {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+#coaching-invest-in-coaching .identity-purpose-image-wrap,
+#coaching-invest-in-coaching .identity-purpose-text-wrap {
+    width: 50%;
+    height: 100%;
+}
+
+#coaching-invest-in-coaching .identity-purpose-image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    background-color: var(--color-bg);
+    overflow: hidden;
+}
+
+#coaching-invest-in-coaching .identity-purpose-image {
+    display: block;
+    width: min(72%, 480px);
+    height: auto;
+    max-height: 62vh;
+    object-fit: contain;
+    object-position: center;
+}
+
+#coaching-invest-in-coaching .identity-purpose-text-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(24px, 5vw, 64px);
+    background-color: var(--color-bg);
+}
+
+#coaching-invest-in-coaching .identity-purpose-text-wrap h3 {
+    margin: 0 0 18px;
+    color: var(--color-text);
+    font-size: clamp(1.6rem, 3.1vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+}
+
+#coaching-invest-in-coaching .identity-purpose-text-wrap p {
+    margin: 0;
+    max-width: 44ch;
+    font-size: clamp(1rem, 1.35vw, 1.22rem);
+    line-height: 1.75;
+    color: var(--color-text);
+}
+
+#coaching-invest-in-coaching .identity-purpose-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    align-self: center;
+    width: fit-content;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: 2px solid #313030;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+#coaching-invest-in-coaching .identity-purpose-contact-btn:hover,
+#coaching-invest-in-coaching .identity-purpose-contact-btn:focus-visible {
+    background-color: #313030;
+}
+
+@media (max-width: 768px) {
+    #coaching-invest-in-coaching.section {
+        min-height: 60vh;
+        height: auto;
+    }
+
+    #coaching-invest-in-coaching .identity-purpose-layout {
+        flex-direction: column;
+    }
+
+    #coaching-invest-in-coaching .identity-purpose-image-wrap,
+    #coaching-invest-in-coaching .identity-purpose-text-wrap {
+        width: 100%;
+    }
+
+    #coaching-invest-in-coaching .identity-purpose-image-wrap {
+        height: 38vh;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    #coaching-invest-in-coaching .identity-purpose-image {
+        width: min(72%, 360px);
+        max-height: 34vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #coaching-invest-in-coaching.section {
+        min-height: 45vh;
+    }
+
+    #coaching-invest-in-coaching .identity-purpose-image-wrap {
+        height: 28vh;
+    }
+
+    #coaching-invest-in-coaching .identity-purpose-image {
+        width: min(74%, 280px);
+        max-height: 22vh;
+    }
+}
+
 
