@@ -54,7 +54,7 @@
 
 .home-center-content {
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -66,8 +66,16 @@
 
 .home-center-text {
     color: #ffffff;
-    font-size: clamp(1.8rem, 4.5vw, 4rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 500;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+.home-center-text1 {
+    color: #ffffff;
+    font-size: clamp(1.3rem, 3vw, 2.5rem);
+    font-weight: 400;
     letter-spacing: 0.08em;
     text-align: center;
     text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
