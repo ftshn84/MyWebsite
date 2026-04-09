@@ -614,6 +614,8 @@ function initializeCompaniesCarousel() {
     const track = document.querySelector('.companies-track');
     const dots = Array.from(document.querySelectorAll('.companies-dot'));
     const slides = track ? Array.from(track.children) : [];
+    const infoName = document.querySelector('.companies-info-name');
+    const infoDescription = document.querySelector('.companies-info-description');
 
     if (!carousel || !track || slides.length === 0 || dots.length === 0) {
         return;
@@ -628,6 +630,12 @@ function initializeCompaniesCarousel() {
         dots.forEach((dot, i) => {
             dot.classList.toggle('is-active', i === currentIndex);
         });
+
+        const activeSlide = slides[currentIndex];
+        if (activeSlide && infoName && infoDescription) {
+            infoName.textContent = activeSlide.dataset.company || `Company ${currentIndex + 1}`;
+            infoDescription.textContent = activeSlide.dataset.description || 'Company description not available yet.';
+        }
     }
 
     function startAutoPlay() {
