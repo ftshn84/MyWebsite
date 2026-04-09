@@ -185,9 +185,9 @@ function setMode(mode) {
     const logoImg = document.querySelector('.logo-img');
     if (logoImg) {
         if (mode === 'light') {
-            logoImg.src = 'logo/logoLightmode.png';
+            logoImg.src = 'logo/Great Dane 04 transparent for white background.png';
         } else {
-            logoImg.src = 'logo/LogoGreatDane.png';
+            logoImg.src = 'logo/Great Dane 04 transparent for black background.png';
         }
     }
 }
