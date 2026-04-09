@@ -120,6 +120,71 @@
     height: 100vh;
     margin: 0;
     padding: 0;
+    position: relative;
+}
+
+#colorewhite.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.companies-carousel-section {
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+}
+
+.companies-carousel-title {
+    margin: 0 0 26px;
+    color: #151515;
+    text-align: center;
+    font-size: clamp(1.2rem, 2.4vw, 2.2rem);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.companies-carousel {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    background: #ffffff;
+}
+
+.companies-track {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: max-content;
+    padding: 18px 0;
+    animation: companies-scroll 32s linear infinite;
+}
+
+.company-logo-card {
+    flex: 0 0 170px;
+    height: 92px;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-logo-img {
+    width: 80%;
+    height: 70%;
+    object-fit: contain;
+}
+
+@keyframes companies-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .identity-purpose-layout {
@@ -215,6 +280,20 @@
         flex-direction: column;
     }
 
+    .companies-carousel-title {
+        white-space: normal;
+        margin-bottom: 18px;
+    }
+
+    .company-logo-card {
+        flex-basis: 138px;
+        height: 80px;
+    }
+
+    .companies-track {
+        animation-duration: 26s;
+    }
+
     .identity-purpose-image-wrap,
     .identity-purpose-text-wrap {
         width: 100%;
@@ -248,6 +327,24 @@
     .identity-purpose-image {
         width: min(74%, 280px);
         max-height: 22vh;
+    }
+
+    .companies-carousel-section {
+        width: 94vw;
+    }
+
+    .companies-carousel-title {
+        font-size: 1rem;
+    }
+
+    .company-logo-card {
+        flex-basis: 118px;
+        height: 68px;
+    }
+
+    .companies-track {
+        gap: 12px;
+        animation-duration: 22s;
     }
 }
 

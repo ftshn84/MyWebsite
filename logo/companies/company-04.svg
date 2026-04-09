@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" role="img" aria-label="Company 04 logo placeholder">
+  <rect width="640" height="320" fill="#f4f6f8"/>
+  <rect x="14" y="14" width="612" height="292" rx="20" fill="#ffffff" stroke="#d6dbe1" stroke-width="4"/>
+  <circle cx="120" cy="160" r="46" fill="#1f2937"/>
+  <rect x="200" y="126" width="286" height="24" rx="8" fill="#1f2937"/>
+  <rect x="200" y="170" width="220" height="20" rx="8" fill="#9aa4b2"/>
+  <text x="320" y="264" text-anchor="middle" fill="#5f6b7a" font-family="Segoe UI, Arial, sans-serif" font-size="28">Company 04</text>
+</svg>
