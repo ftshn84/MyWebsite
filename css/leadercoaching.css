@@ -16,7 +16,7 @@
     object-position: center top;
 }
 
-#ledercoaching .coaching-hero-content {
+#ledercoaching .ledercoaching-hero-content {
     position: absolute;
     left: 30%;
     top: 55%;
@@ -28,7 +28,7 @@
     z-index: 2;
 }
 
-#ledercoaching .coaching-hero-text {
+#ledercoaching .ledercoaching-hero-text {
     margin: 0;
     color: #ffffff;
     font-size: clamp(1.8rem, 7vw, 6rem);
@@ -40,7 +40,7 @@
     text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
-#ledercoaching .coaching-center-button {
+#ledercoaching .ledercoaching-center-button {
     margin: 25px 0 0;
     text-decoration: none;
     background-color: #c81919;
@@ -54,7 +54,7 @@
     transition: background-color 0.2s ease;
 }
 
-#ledercoaching .coaching-center-button:hover {
+#ledercoaching .ledercoaching-center-button:hover {
     background-color: #a31212;
 }
 
@@ -63,11 +63,11 @@
         height: 60vh;
     }
 
-    #ledercoaching .coaching-hero-content {
+    #ledercoaching .ledercoaching-hero-content {
         top: 70%;
     }
 
-    #ledercoaching .coaching-hero-text {
+    #ledercoaching .ledercoaching-hero-text {
         font-size: clamp(1.4rem, 8vw, 3rem);
     }
 }
@@ -77,7 +77,68 @@
         height: 45vh;
     }
 
-    #ledercoaching .coaching-hero-content {
+    #ledercoaching .ledercoaching-hero-content {
         top: 68%;
+    }
+}
+
+/* LEDERCOACHING GDC offers section */
+#ledercoaching-gdc-offers.section {
+    background-color: #ffffff;
+    color: #151515;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#ledercoaching-gdc-offers .companies-carousel-section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 clamp(12px, 2.8vw, 40px);
+    box-sizing: border-box;
+}
+
+#ledercoaching-gdc-offers .companies-carousel-title {
+    color: #151515;
+}
+
+#ledercoaching-gdc-offers .portfolio-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 30px);
+    margin: 40px 0 0;
+    padding: 0;
+    align-items: stretch;
+}
+
+#ledercoaching-gdc-offers .portfolio-item {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+}
+
+#ledercoaching-gdc-offers .portfolio-text {
+    color: #151515 !important;
+    visibility: visible !important;
+    opacity: 1;
+}
+
+#ledercoaching-gdc-offers .portfolio-btn {
+    min-width: 0;
+    width: 100%;
+    max-width: 220px;
+}
+
+@media (max-width: 900px) {
+    #ledercoaching-gdc-offers .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    #ledercoaching-gdc-offers .portfolio-grid {
+        grid-template-columns: 1fr;
     }
 }

@@ -319,6 +319,22 @@ function removeActiveFromButtons() {
     });
 }
 
+function scrollToHashWithOffset(hash) {
+    if (!hash || !hash.startsWith('#')) return;
+
+    const targetSection = document.querySelector(hash);
+    if (!targetSection) return;
+
+    const header = document.querySelector('.header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const sectionTop = targetSection.getBoundingClientRect().top + window.pageYOffset;
+
+    window.scrollTo({
+        top: sectionTop - headerHeight,
+        behavior: 'smooth'
+    });
+}
+
 // ============================================
 // UPDATE ACTIVE BUTTON BASED ON SCROLL
 // ============================================
@@ -389,6 +405,17 @@ window.addEventListener('load', () => {
         homeButton.classList.add('active');
         console.log('Page loaded - Home section highlighted');
     }
+
+    // Ensure deep links like index.html#contact account for fixed header height.
+    if (window.location.hash) {
+        setTimeout(() => {
+            scrollToHashWithOffset(window.location.hash);
+        }, 0);
+    }
+});
+
+window.addEventListener('hashchange', () => {
+    scrollToHashWithOffset(window.location.hash);
 });
 
 // ============================================
