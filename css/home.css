@@ -130,6 +130,10 @@
     padding-top: 28px;
 }
 
+#gdc-services-portfolio.section {
+    background-color: #ffffff;
+}
+
 .companies-carousel-section {
     width: min(1200px, 92vw);
     margin: 0 auto;
