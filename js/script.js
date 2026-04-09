@@ -122,7 +122,7 @@ function setLanguage(lang) {
     }
     // Navigation buttons (force uppercase)
     setText('.nav-btn[href="#home"]', translations[lang].home.toUpperCase());
-    setText('.nav-btn[href="#coaching"]', translations[lang].coaching.toUpperCase());
+    setText('.nav-btn[href="coaching.html"]', translations[lang].coaching.toUpperCase());
     setText('.nav-btn[href="#ledercoaching"]', translations[lang].ledercoaching.toUpperCase());
     setText('.nav-btn[href="#teamcoaching"]', translations[lang].teamcoaching.toUpperCase());
     setText('.nav-btn[href="#success-stories"]', translations[lang].successStories.toUpperCase());
