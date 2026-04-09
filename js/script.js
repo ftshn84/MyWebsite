@@ -609,11 +609,71 @@ function initializeTestimonialCarousel() {
     // scrollLoopPauseable();
 }
 
+function initializeCompaniesCarousel() {
+    const carousel = document.querySelector('.companies-carousel');
+    const track = document.querySelector('.companies-track');
+    const dots = Array.from(document.querySelectorAll('.companies-dot'));
+    const slides = track ? Array.from(track.children) : [];
+
+    if (!carousel || !track || slides.length === 0 || dots.length === 0) {
+        return;
+    }
+
+    let currentIndex = 0;
+    let timer = null;
+
+    function render(index) {
+        currentIndex = index;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('is-active', i === currentIndex);
+        });
+    }
+
+    function startAutoPlay() {
+        timer = setInterval(() => {
+            const next = (currentIndex + 1) % slides.length;
+            render(next);
+        }, 2800);
+    }
+
+    function resetAutoPlay() {
+        if (timer) {
+            clearInterval(timer);
+        }
+        startAutoPlay();
+    }
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            render(i);
+            resetAutoPlay();
+        });
+    });
+
+    carousel.addEventListener('mouseenter', () => {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        if (!timer) {
+            startAutoPlay();
+        }
+    });
+
+    render(0);
+    startAutoPlay();
+}
+
 // Call the carousel initialization after testimonials are rendered
 document.addEventListener('DOMContentLoaded', function () {
     // Wait for testimonials to be rendered (by components.js)
     setTimeout(() => {
         initializeTestimonialCarousel();
+        initializeCompaniesCarousel();
     }, 0);
 });
 

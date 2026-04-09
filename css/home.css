@@ -126,8 +126,8 @@
 #colorewhite.section {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 0;
+    align-items: flex-start;
+    padding-top: 28px;
 }
 
 .companies-carousel-section {
@@ -150,20 +150,22 @@
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
     background: #ffffff;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .companies-track {
     display: flex;
     align-items: center;
-    gap: 18px;
-    width: max-content;
-    padding: 18px 0;
-    animation: companies-scroll 32s linear infinite;
+    gap: 0;
+    width: 100%;
+    padding: 0;
+    transition: transform 0.45s ease;
 }
 
 .company-logo-card {
-    flex: 0 0 170px;
-    height: 92px;
+    flex: 0 0 100%;
+    height: 220px;
     border: 1px solid #ececec;
     border-radius: 10px;
     background: #fafafa;
@@ -173,18 +175,29 @@
 }
 
 .company-logo-img {
-    width: 80%;
-    height: 70%;
+    width: 78%;
+    height: 72%;
     object-fit: contain;
 }
 
-@keyframes companies-scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+.companies-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.companies-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: #bcbcbc;
+    cursor: pointer;
+}
+
+.companies-dot.is-active {
+    background-color: #151515;
 }
 
 .identity-purpose-layout {
@@ -286,12 +299,7 @@
     }
 
     .company-logo-card {
-        flex-basis: 138px;
-        height: 80px;
-    }
-
-    .companies-track {
-        animation-duration: 26s;
+        height: 180px;
     }
 
     .identity-purpose-image-wrap,
@@ -338,13 +346,11 @@
     }
 
     .company-logo-card {
-        flex-basis: 118px;
-        height: 68px;
+        height: 150px;
     }
 
     .companies-track {
-        gap: 12px;
-        animation-duration: 22s;
+        transition-duration: 0.35s;
     }
 }
 
