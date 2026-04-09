@@ -89,6 +89,7 @@
 
 .home-center-button {
     margin: 0;
+    text-decoration: none;
     background-color: #c81919;
     color: #ffffff;
     border: none;
@@ -128,7 +129,6 @@
     justify-content: center;
     align-items: flex-start;
     padding-top: 28px;
-    padding-bottom: 0px;
 }
 
 #gdc-services-portfolio.section {
@@ -140,7 +140,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 0;
+    padding-top: 28px;
 }
 
 #gdc-services-portfolio.section h2 {

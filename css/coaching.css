@@ -9,7 +9,7 @@
 
 .coaching-hero-content {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 30%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -20,7 +20,7 @@
 }
 
 .coaching-hero-text {
-    margin: 0 0 8px;
+    margin: 0 0 0px;
     color: #ffffff;
     font-size: clamp(1.8rem, 7vw, 6rem);
     font-weight: 500;
@@ -30,4 +30,19 @@
     text-align: center;
     
     text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+.coaching-center-button {
+   margin: 25px 0 0;
+    background-color: #c81919;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.coaching-center-button:hover {
+    background-color: #a31212;
 }
