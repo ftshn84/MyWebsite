@@ -132,6 +132,19 @@
 
 #gdc-services-portfolio.section {
     background-color: #ffffff;
+    min-height: 100vh;
+    height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 28px;
+}
+
+#gdc-services-portfolio.section h2 {
+    margin: 0;
+    text-align: center;
 }
 
 .companies-carousel-section {
