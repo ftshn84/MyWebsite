@@ -1,0 +1,54 @@
+<!-- Booking section -->
+<section id="booking" class="section">
+    <h2>Book an Appointment</h2>
+    <p>Select a date from the calendar below to schedule your appointment.</p>
+    <div id="booking-modal" class="booking-modal" style="display:none;">
+        <div class="booking-modal-content">
+            <span class="booking-modal-close" id="booking-modal-close">&times;</span>
+            <h3>Book a Time</h3>
+            <form id="booking-form">
+                <div>
+                    <label for="booking-date">Date:</label>
+                    <input type="text" id="booking-date" name="booking-date" readonly>
+                </div>
+                <div>
+                    <label for="booking-time">Time:</label>
+                    <select id="booking-time" name="booking-time" required></select>
+                </div>
+                <div>
+                    <label for="booking-name">Your Name:</label>
+                    <input type="text" id="booking-name" name="booking-name" required>
+                </div>
+                <div>
+                    <label for="booking-email">Your Email:</label>
+                    <input type="email" id="booking-email" name="booking-email" required>
+                </div>
+                <button type="submit" class="calendar-btn">Book Appointment</button>
+            </form>
+            <div id="booking-success" style="display:none;color:green;margin-top:10px;">Booking successful! We will contact you soon.</div>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button id="prevMonth" class="calendar-btn">← Previous</button>
+            <h3 id="monthYear"></h3>
+            <button id="nextMonth" class="calendar-btn">Next →</button>
+        </div>
+
+        <div class="calendar-grid">
+            <div class="day-header">Sun</div>
+            <div class="day-header">Mon</div>
+            <div class="day-header">Tue</div>
+            <div class="day-header">Wed</div>
+            <div class="day-header">Thu</div>
+            <div class="day-header">Fri</div>
+            <div class="day-header">Sat</div>
+            <div id="calendarDays" class="calendar-days"></div>
+        </div>
+
+        <div class="selected-date">
+            <p>Selected Date: <span id="selectedDate">None</span></p>
+        </div>
+    </div>
+</section>
