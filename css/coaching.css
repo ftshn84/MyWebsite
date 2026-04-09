@@ -33,6 +33,7 @@
 }
 .coaching-center-button {
    margin: 25px 0 0;
+    text-decoration: none;
     background-color: #c81919;
     color: #ffffff;
     border: none;
