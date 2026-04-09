@@ -1,0 +1,33 @@
+/* Coaching section styles (standalone page) */
+
+#coaching.section {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.coaching-hero-content {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    z-index: 2;
+}
+
+.coaching-hero-text {
+    margin: 0 0 6px;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 7vw, 6rem);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    line-height: 0.9;
+    text-align: center;
+    
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
