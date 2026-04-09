@@ -47,3 +47,172 @@
 .coaching-center-button:hover {
     background-color: #a31212;
 }
+
+/* Coaching identity section overrides (scoped to coaching page section) */
+#coaching-identity-purpose.section,
+#coaching-gdc-offers.section {
+    background-color: #ffffff;
+    color: #151515;
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#coaching-identity-purpose .identity-purpose-layout,
+#coaching-gdc-offers .identity-purpose-layout {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+#coaching-identity-purpose .identity-purpose-image-wrap,
+#coaching-identity-purpose .identity-purpose-text-wrap,
+#coaching-gdc-offers .identity-purpose-image-wrap,
+#coaching-gdc-offers .identity-purpose-text-wrap {
+    width: 50%;
+    height: 100%;
+}
+
+#coaching-identity-purpose .identity-purpose-image-wrap,
+#coaching-gdc-offers .identity-purpose-image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+#coaching-identity-purpose .identity-purpose-image,
+#coaching-gdc-offers .identity-purpose-image {
+    display: block;
+    width: min(72%, 480px);
+    height: auto;
+    max-height: 62vh;
+    object-fit: contain;
+    object-position: center;
+}
+
+#coaching-identity-purpose .identity-purpose-text-wrap,
+#coaching-gdc-offers .identity-purpose-text-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(24px, 5vw, 64px);
+    background-color: #ffffff;
+}
+
+#coaching-identity-purpose .identity-purpose-text-wrap h3,
+#coaching-gdc-offers .identity-purpose-text-wrap h3 {
+    margin: 0 0 18px;
+    border-bottom: none;
+    padding: 0;
+    color: #151515;
+    font-size: clamp(1.6rem, 3.2vw, 3rem);
+}
+
+#coaching-identity-purpose .identity-purpose-text-wrap p,
+#coaching-gdc-offers .identity-purpose-text-wrap p {
+    margin: 0;
+    max-width: 44ch;
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    line-height: 1.7;
+    color: #151515;
+}
+
+#coaching-identity-purpose .identity-purpose-contact-btn,
+#coaching-gdc-offers .identity-purpose-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    align-self: center;
+    width: fit-content;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: 2px solid #313030;
+    text-decoration: none;
+    color: #313030;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#coaching-identity-purpose .identity-purpose-contact-btn:hover,
+#coaching-identity-purpose .identity-purpose-contact-btn:focus-visible,
+#coaching-gdc-offers .identity-purpose-contact-btn:hover,
+#coaching-gdc-offers .identity-purpose-contact-btn:focus-visible {
+    background-color: #313030;
+    color: #ffffff;
+}
+
+/* Match the GDC Services & Portfolio section container behavior */
+#coaching-gdc-offers.section {
+    background-color: #ffffff;
+    min-height: 100vh;
+    height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 28px;
+}
+
+@media (max-width: 768px) {
+    #coaching-identity-purpose.section,
+    #coaching-gdc-offers.section {
+        min-height: 60vh;
+    }
+
+    #coaching-identity-purpose .identity-purpose-layout,
+    #coaching-gdc-offers .identity-purpose-layout {
+        flex-direction: column;
+    }
+
+    #coaching-identity-purpose .identity-purpose-image-wrap,
+    #coaching-identity-purpose .identity-purpose-text-wrap,
+    #coaching-gdc-offers .identity-purpose-image-wrap,
+    #coaching-gdc-offers .identity-purpose-text-wrap {
+        width: 100%;
+    }
+
+    #coaching-identity-purpose .identity-purpose-image-wrap,
+    #coaching-gdc-offers .identity-purpose-image-wrap {
+        height: 38vh;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    #coaching-identity-purpose .identity-purpose-image,
+    #coaching-gdc-offers .identity-purpose-image {
+        width: min(72%, 360px);
+        max-height: 34vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #coaching-identity-purpose.section,
+    #coaching-gdc-offers.section {
+        min-height: 45vh;
+    }
+
+    #coaching-identity-purpose .identity-purpose-image-wrap,
+    #coaching-gdc-offers .identity-purpose-image-wrap {
+        height: 28vh;
+    }
+
+    #coaching-identity-purpose .identity-purpose-image,
+    #coaching-gdc-offers .identity-purpose-image {
+        width: min(74%, 280px);
+        max-height: 22vh;
+    }
+}
+
+
