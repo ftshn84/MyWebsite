@@ -203,6 +203,10 @@
 }
 
 @media (max-width: 768px) {
+    .coaching-hero-content {
+        left: 50%;
+    }
+
     #coaching-identity-purpose.section,
     #coaching-gdc-offers.section {
         min-height: 60vh;
