@@ -1,0 +1,83 @@
+/* TEAMCOACHING hero section styles */
+
+#teamcoaching.section {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#teamcoaching .hero-img {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+#teamcoaching .teamcoaching-hero-content {
+    position: absolute;
+    left: 30%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    z-index: 2;
+}
+
+#teamcoaching .teamcoaching-hero-text {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 7vw, 6rem);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    line-height: 0.9;
+    text-align: center;
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+#teamcoaching .teamcoaching-center-button {
+    margin: 25px 0 0;
+    text-decoration: none;
+    background-color: #c81919;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#teamcoaching .teamcoaching-center-button:hover {
+    background-color: #a31212;
+}
+
+@media (max-width: 768px) {
+    #teamcoaching .hero-img {
+        height: 60vh;
+    }
+
+    #teamcoaching .teamcoaching-hero-content {
+        top: 70%;
+    }
+
+    #teamcoaching .teamcoaching-hero-text {
+        font-size: clamp(1.4rem, 8vw, 3rem);
+    }
+}
+
+@media (max-width: 480px) {
+    #teamcoaching .hero-img {
+        height: 45vh;
+    }
+
+    #teamcoaching .teamcoaching-hero-content {
+        top: 68%;
+    }
+}

@@ -138,8 +138,7 @@ function setLanguage(lang) {
     setText('#coaching p', translations[lang].coachingText);
     setText('#ledercoaching h2', translations[lang].ledercoachingTitle);
     setText('#ledercoaching p', translations[lang].ledercoachingText);
-    setText('#teamcoaching h2', translations[lang].teamcoachingTitle);
-    setText('#teamcoaching p', translations[lang].teamcoachingText);
+    setText('#teamcoaching .teamcoaching-hero-text', translations[lang].teamcoachingTitle);
     setText('#success-stories h2', translations[lang].successStoriesTitle);
     setText('#success-stories p', translations[lang].successStoriesText);
     setText(esc('1-1-coaching') + ' h2', translations[lang].oneToOneTitle);
