@@ -1,13 +1,13 @@
-/* TEAMCOACHING hero section styles */
+/* 1:1 COACHING hero section styles */
 
-#teamcoaching.section {
+#\31-1-coaching.section {
     position: relative;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-#teamcoaching .hero-img {
+#\31-1-coaching .hero-img {
     display: block;
     width: 100%;
     height: 100vh;
@@ -16,7 +16,7 @@
     object-position: center top;
 }
 
-#teamcoaching .teamcoaching-hero-content {
+#\31-1-coaching .one-to-one-hero-content {
     position: absolute;
     left: 30%;
     top: 55%;
@@ -28,7 +28,7 @@
     z-index: 2;
 }
 
-#teamcoaching .teamcoaching-hero-text {
+#\31-1-coaching .one-to-one-hero-text {
     margin: 0;
     color: #ffffff;
     font-size: clamp(1.8rem, 7vw, 6rem);
@@ -40,7 +40,7 @@
     text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
-#teamcoaching .teamcoaching-center-button {
+#\31-1-coaching .one-to-one-center-button {
     margin: 25px 0 0;
     text-decoration: none;
     background-color: #c81919;
@@ -54,36 +54,36 @@
     transition: background-color 0.2s ease;
 }
 
-#teamcoaching .teamcoaching-center-button:hover {
+#\31-1-coaching .one-to-one-center-button:hover {
     background-color: #a31212;
 }
 
 @media (max-width: 768px) {
-    #teamcoaching .hero-img {
+    #\31-1-coaching .hero-img {
         height: 60vh;
     }
 
-    #teamcoaching .teamcoaching-hero-content {
+    #\31-1-coaching .one-to-one-hero-content {
         top: 70%;
     }
 
-    #teamcoaching .teamcoaching-hero-text {
+    #\31-1-coaching .one-to-one-hero-text {
         font-size: clamp(1.4rem, 8vw, 3rem);
     }
 }
 
 @media (max-width: 480px) {
-    #teamcoaching .hero-img {
+    #\31-1-coaching .hero-img {
         height: 45vh;
     }
 
-    #teamcoaching .teamcoaching-hero-content {
+    #\31-1-coaching .one-to-one-hero-content {
         top: 68%;
     }
 }
 
-/* TEAMCOACHING GDC offers section */
-#teamcoaching-gdc-offers.section {
+/* 1:1 COACHING GDC offers section */
+#\31-1-coaching-gdc-offers.section {
     background-color: #ffffff;
     color: #151515;
     width: 100%;
@@ -96,7 +96,7 @@
     align-items: center;
 }
 
-#teamcoaching-gdc-offers .companies-carousel-section {
+#\31-1-coaching-gdc-offers .companies-carousel-section {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -108,12 +108,12 @@
     align-items: center;
 }
 
-#teamcoaching-gdc-offers .companies-carousel-title {
+#\31-1-coaching-gdc-offers .companies-carousel-title {
     color: #151515;
     text-align: center;
 }
 
-#teamcoaching-gdc-offers .portfolio-grid {
+#\31-1-coaching-gdc-offers .portfolio-grid {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -123,26 +123,26 @@
     align-items: stretch;
 }
 
-#teamcoaching-gdc-offers .portfolio-item {
+#\31-1-coaching-gdc-offers .portfolio-item {
     width: 100%;
     min-width: 0;
     max-width: none;
 }
 
-#teamcoaching-gdc-offers .portfolio-text {
+#\31-1-coaching-gdc-offers .portfolio-text {
     color: #151515 !important;
     visibility: visible !important;
     opacity: 1;
 }
 
-#teamcoaching-gdc-offers .portfolio-btn {
+#\31-1-coaching-gdc-offers .portfolio-btn {
     min-width: 0;
     width: 100%;
     max-width: 220px;
 }
 
 @media (max-width: 900px) {
-    #teamcoaching-gdc-offers.section {
+    #\31-1-coaching-gdc-offers.section {
         height: 100vh;
         min-height: 100vh;
         padding: 0;
@@ -151,20 +151,20 @@
         align-items: center;
     }
 
-    #teamcoaching-gdc-offers .companies-carousel-section {
+    #\31-1-coaching-gdc-offers .companies-carousel-section {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    #teamcoaching-gdc-offers .portfolio-grid {
+    #\31-1-coaching-gdc-offers .portfolio-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 560px) {
-    #teamcoaching-gdc-offers.section {
+    #\31-1-coaching-gdc-offers.section {
         height: 100vh;
         min-height: 100vh;
         display: flex;
@@ -172,7 +172,7 @@
         align-items: center;
     }
 
-    #teamcoaching-gdc-offers .portfolio-grid {
+    #\31-1-coaching-gdc-offers .portfolio-grid {
         grid-template-columns: 1fr;
     }
 }

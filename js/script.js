@@ -124,9 +124,9 @@ function setLanguage(lang) {
     setText('.nav-btn[href="index.html"]', translations[lang].home.toUpperCase());
     setText('.nav-btn[href="coaching.html"]', translations[lang].coaching.toUpperCase());
     setText('.nav-btn[href="ledercoaching.html"]', translations[lang].ledercoaching.toUpperCase());
-    setText('.nav-btn[href="#teamcoaching"]', translations[lang].teamcoaching.toUpperCase());
+    setText('.nav-btn[href="teamcoaching.html"]', translations[lang].teamcoaching.toUpperCase());
     setText('.nav-btn[href="#success-stories"]', translations[lang].successStories.toUpperCase());
-    setText('.nav-btn[href="#1-1-coaching"]', translations[lang].oneToOne.toUpperCase());
+    setText('.nav-btn[href="one-to-one-coaching.html"]', translations[lang].oneToOne.toUpperCase());
     setText('.nav-btn[href="#booking"]', translations[lang].booking.toUpperCase());
     setText('.nav-btn[href="#contact"]', translations[lang].contact.toUpperCase());
 
@@ -141,8 +141,7 @@ function setLanguage(lang) {
     setText('#teamcoaching .teamcoaching-hero-text', translations[lang].teamcoachingTitle);
     setText('#success-stories h2', translations[lang].successStoriesTitle);
     setText('#success-stories p', translations[lang].successStoriesText);
-    setText(esc('1-1-coaching') + ' h2', translations[lang].oneToOneTitle);
-    setText(esc('1-1-coaching') + ' p', translations[lang].oneToOneText);
+    setText(esc('1-1-coaching') + ' .one-to-one-hero-text', translations[lang].oneToOneTitle);
     setText('#booking h2', translations[lang].bookingTitle);
     setText('#booking p', translations[lang].bookingText);
     setText('#contact h2', translations[lang].contactTitle);
