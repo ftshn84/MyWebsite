@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# Build output
+dist/
+publish.zip
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
